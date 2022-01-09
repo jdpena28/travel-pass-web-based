@@ -6,6 +6,9 @@ If you dont have Node.js here is the [Installation](https://nodejs.org/en/)
 
 Open command line of VS Code or CMD
 
+**One time command to install all dependencies use** \
+`npm install`
+
 **To start the developement server** \
 `npm run dev`
 
