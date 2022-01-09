@@ -10,7 +10,9 @@ Open command line of VS Code or CMD
 `npm install`
 
 **To start the developement server** \
-`npm run dev`
+`npm run dev` \
+**Open new terminal again to run the tailwind** \
+`npm run tailwind` 
 
 1. It will have a prompt after the command on which the development server running it usually at `localhost:3000`
 
