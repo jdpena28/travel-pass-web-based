@@ -34,7 +34,6 @@ You have specific branch I make in order to be organize so it will be your local
  
 To go to your respective branch run \
 `git checkout <branch_name>`
-
 To push at remote repository \
 `git push origin <branch_name>`
 
