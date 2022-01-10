@@ -17,11 +17,9 @@ nav{
   }
   
 .header{
-    padding: 60px;
-    text-align: absolute;
+    padding: 1.2rem;
+    margin-top: 1.1rem;
     color:black;
-    
-
 }
 .hello {
     font-family: 'Poppins';
