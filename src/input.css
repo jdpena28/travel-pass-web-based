@@ -12,7 +12,6 @@ nav{
     position: sticky;
     font-weight: 600;
     text-align: right;
-<<<<<<< HEAD
     word-spacing: 150px;
 
 }
@@ -24,21 +23,17 @@ nav{
     
 
 }
-h1{
+.hello {
     font-family: 'Poppins';
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
     background: -webkit-linear-gradient(120deg,rgba(135, 204, 254, 0.93), rgb(12, 104, 237, 1));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     
 
 }
-p{
-    line-height: 0;
-    font-size:23px;
-=======
-    padding: 1.2rem;
-    word-spacing: 4rem;
->>>>>>> 03bb61d0bcd05fe2b5d63db9c32192bdaa57f1c1
+.sign{
+    line-height:0;
+    font: size 25px;
 }
