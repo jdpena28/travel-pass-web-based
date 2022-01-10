@@ -47,3 +47,9 @@ Commit your work if you have specifically done like for example you create a for
  - Commit for bugfix you have seen
  - etc....
 
+#### Pushing at Github 
+**When your _CHORE_ is done** \
+`git add .` - To add all your edit changes \
+`git commit -m "CHORE <number> - <title of your work>"` - to commit your work \
+When all is done push your work at github to do that \
+`git push origin <branch_name>` - check your branch name above
