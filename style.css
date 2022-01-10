@@ -6,3 +6,14 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+nav{
+  margin-right: 0px;
+  font-size: 31px;
+  position: sticky;
+  font-weight: 600;
+  line-height: 130px;
+  text-align: right;
+  word-spacing: 150px;
+
+}
+
