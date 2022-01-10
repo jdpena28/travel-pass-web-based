@@ -6,3 +6,12 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+nav{
+    font-size: 1.4rem;
+    position: sticky;
+    font-weight: 600;
+    text-align: right;
+    padding: 1.2rem;
+    word-spacing: 4rem;
+}
