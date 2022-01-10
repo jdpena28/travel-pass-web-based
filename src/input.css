@@ -12,10 +12,10 @@ nav{
     position: sticky;
     font-weight: 600;
     text-align: right;
-    word-spacing: 150px;
-
-}
-
+    padding: 1.2rem;
+    word-spacing: 4rem;
+  }
+  
 .header{
     padding: 60px;
     text-align: absolute;
