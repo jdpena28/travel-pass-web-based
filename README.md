@@ -34,6 +34,8 @@ You have specific branch I make in order to be organize so it will be your local
  - TPS-Jefte
  - TPS-Vien
  
+To create a branch at your local computer \
+`git branch <branch_name>` \
 To go to your respective branch run \
 `git checkout <branch_name>`
 To push at remote repository \
