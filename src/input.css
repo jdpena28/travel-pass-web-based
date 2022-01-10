@@ -8,12 +8,10 @@ body {
 }
 
 nav{
-    margin-right: 0px;
-    font-size: 31px;
+    font-size: 1.4rem;
     position: sticky;
     font-weight: 600;
-    line-height: 130px;
     text-align: right;
-    word-spacing: 150px;
-
+    padding: 1.2rem;
+    word-spacing: 4rem;
 }
