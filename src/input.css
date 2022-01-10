@@ -8,12 +8,11 @@ body {
 }
 
 nav{
-    margin-right: 0px;
-    font-size: 31px;
+    font-size: 1.4rem;
     position: sticky;
     font-weight: 600;
-    line-height: 130px;
     text-align: right;
+<<<<<<< HEAD
     word-spacing: 150px;
 
 }
@@ -38,4 +37,8 @@ h1{
 p{
     line-height: 0;
     font-size:23px;
+=======
+    padding: 1.2rem;
+    word-spacing: 4rem;
+>>>>>>> 03bb61d0bcd05fe2b5d63db9c32192bdaa57f1c1
 }
