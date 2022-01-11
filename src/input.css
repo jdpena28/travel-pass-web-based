@@ -14,4 +14,24 @@ nav{
     text-align: right;
     padding: 1.2rem;
     word-spacing: 4rem;
+  }
+  
+.header{
+    padding: 1.2rem;
+    margin-top: 1.1rem;
+    color:black;
+}
+.hello {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 40px;
+    background: -webkit-linear-gradient(120deg,rgba(135, 204, 254, 0.93), rgb(12, 104, 237, 1));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    
+
+}
+.sign{
+    line-height:0;
+    font: size 25px;
 }
