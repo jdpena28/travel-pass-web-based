@@ -11,7 +11,6 @@
               <h3 class="hello">Hello Traveler</h3>
               <p class="sign">Sign in to Continue</p>
             </div>
-  
               <form class="w-full px-8 flex flex-col items-center gap-y-2" action="">
                <InputField type = "email" label = "Email or Username" placeholder="johndoe@email.com"/>
                <InputField type = "password" label = "Password" placeholder="password"/>
@@ -61,6 +60,7 @@ background-image: url('~assets/images/signUpBackground.png')
     background: -webkit-linear-gradient(120deg,rgba(135, 204, 254, 0.93), rgb(12, 104, 237, 1));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 .sign{
     line-height:0;
