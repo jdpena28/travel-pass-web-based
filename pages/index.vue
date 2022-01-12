@@ -5,10 +5,10 @@
       <div class="container mx-auto">
         <!--insert your code here-->
         <nav>
-          <a href="">Home</a>
-          <a href="">Get-Pass</a>
-          <a href="">FAQ</a>
-          <a href="">About</a>  
+          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Home</a>
+          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Get-Pass</a>
+          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">FAQ</a>
+          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">About</a>  
          </nav>
         <div class="space-y-2">
           <h1 class="text-blue-800 font-bold text-4xl">1 Bataan</h1>
