@@ -4,8 +4,10 @@
       class="h-screen w-full bg-cover">
       <div class="container h-full flex justify-center items-center mx-auto">
         <!--insert your code here-->
-        <div  class="bg-white/75 flex justify-end w-[75%] h-[75%] rounded-3xl">
-          <div id="card" class="h-full w-[50%] rounded-3xl shadow-lg"></div>
+        <div  class="bg-white/30 backdrop-blur-md flex justify-end w-[75%] h-[75%] rounded-3xl">
+          <div id="card" class="h-full relative  w-[50%] rounded-3xl shadow-lg">
+            <img class="h-max w-max absolute inset-0 m-auto" src="~/assets/images/form_illustration.png" alt="Form Illustration" height="329.67px" width="244px" >
+          </div>
           <div id="card" class="bg-white h-full w-[50%] rounded-3xl shadow-lg">
             <div class="header">
               <h3 class="hello">Hello Traveler</h3>
@@ -60,6 +62,7 @@ background-image: url('~assets/images/signUpBackground.png')
     background: -webkit-linear-gradient(120deg,rgba(135, 204, 254, 0.93), rgb(12, 104, 237, 1));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 .sign{
     line-height:0;
