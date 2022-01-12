@@ -2,15 +2,15 @@
    <section
       id="landing-page"
       class="h-screen w-full bg-cover">
-      <div class="container mx-auto">
-        <!--insert your code here-->
-        <nav>
+      <nav class="backdrop-filter backdrop-blur-sm bg-opacity-50 shadow-sm border-b">
           <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Home</a>
           <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Get-Pass</a>
           <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">FAQ</a>
           <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">About</a>  
-         </nav>
-        <div class="space-y-2">
+      </nav>
+      <div class="container mx-auto">
+        <!--insert your code here-->
+        <div class="mt-12 space-y-2 ">
           <h1 class="text-blue-800 font-bold text-4xl">1 Bataan</h1>
           <h1 class="text-blue-800 font-medium text-4xl">Travel Pass System</h1>
           <p class="w-96 text-left leading-7 text-lg pr-2">
