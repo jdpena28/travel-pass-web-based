@@ -1,0 +1,16 @@
+[
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\John Henrich\\\\Desktop\\\\Code-Projects\\\\travelpass-system\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_7750d886"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\John Henrich\\\\Desktop\\\\Code-Projects\\\\travelpass-system\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_0aa01eb4"
+  }
+]
