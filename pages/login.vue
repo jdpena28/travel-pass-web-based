@@ -11,6 +11,7 @@
               <h3 class="hello">Hello Traveler</h3>
               <p class="sign">Sign in to Continue</p>
             </div>
+  
               <form class="w-full px-8 flex flex-col items-center gap-y-2" action="">
                <InputField type = "email" label = "Email or Username" placeholder="johndoe@email.com"/>
                <InputField type = "password" label = "Password" placeholder="password"/>
