@@ -2,6 +2,7 @@
     <section
       id="log-in"
       class="h-screen w-full bg-cover">
+      <NavigationBar/>
       <div class="container h-full flex justify-center items-center mx-auto">
         <!--insert your code here-->
         <div  class="bg-white/75 flex justify-end w-[75%] h-[75%] rounded-3xl">
