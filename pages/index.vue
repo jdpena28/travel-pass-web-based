@@ -2,6 +2,7 @@
    <section
       id="landing-page"
       class="h-screen w-full bg-cover">
+      
       <NavigationBar/>
       <div class="container mx-auto">
         <!--insert your code here-->
