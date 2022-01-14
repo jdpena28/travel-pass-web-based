@@ -15,4 +15,7 @@ module.exports = {
     'ignores': ['default']
   }]},
   
+  /* rules: {
+    "vue/attribute-hyphenation": ["error", "never"],
+  }, */
 }
