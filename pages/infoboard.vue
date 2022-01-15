@@ -3,7 +3,7 @@
       id="info-board"
       class="h-screen w-full bg-cover">
       <NavigationBar/>
-      <div class="container h-[85%] flex justify-center items-center mx-auto">
+      <div class="container flex justify-center items-center mx-auto">
         <!--insert your code here-->
         <h1 class="text-xl font-semibold"></h1>
         <div class="flex justify-center items-center w-full h-[80%]">
@@ -22,7 +22,6 @@
               <p class="text-xl font-bold text-rose-500">CONFIRMED DEATH</p> 
             </div>
           </div>
-
           <div class="grid h-[90%] w-[50%] mr-2 my-2">
             <div class="flex flex-col justify-center items-center col-span-2 h-[90%] w-[90%] mx-auto my-4 space-y-4">
               <p class="font-bold text-3xl">RECOVERED CASES</p>

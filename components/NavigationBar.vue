@@ -1,6 +1,5 @@
 <template>
-     <div>
-     <nav class="backdrop-filter backdrop-blur-sm bg-opacity-50 shadow">
+     <nav class="sticky top-0 z-50 backdrop-filter backdrop-blur-sm bg-opacity-50 shadow">
           <nuxt-link to="/">
                <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Home</a>
           </nuxt-link>
@@ -14,7 +13,6 @@
                <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">About</a>
           </nuxt-link>             
      </nav>
-     </div>  
 </template>
 
 <script>
