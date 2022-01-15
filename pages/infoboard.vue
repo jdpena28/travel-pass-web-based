@@ -9,7 +9,7 @@
         <div class="flex justify-center items-center w-full h-[80%]">
           <div class="grid h-[90%] w-[50%] mx-2 my-2">
             <div class="flex flex-col justify-center items-center col-span-2 h-[90%] w-[90%] mx-auto my-4 space-y-4">
-              <h1 class="font-bold text-3xl">ACTIVE CASES</h1>
+              <p class="font-bold text-3xl">ACTIVE CASES</p>
               <p class="font-bold text-6xl">2,031,767</p>
               <p class="font-normal text-xs pt-4">Currently Infected Patients</p>
             </div>
@@ -25,7 +25,7 @@
 
           <div class="grid h-[90%] w-[50%] mr-2 my-2">
             <div class="flex flex-col justify-center items-center col-span-2 h-[90%] w-[90%] mx-auto my-4 space-y-4">
-              <h1 class="font-bold text-3xl">RECOVERED CASES</h1>
+              <p class="font-bold text-3xl">RECOVERED CASES</p>
               <p class="font-bold text-6xl">1,277,767</p>
               <p class="font-normal text-xs pt-4">Cases which had an outcome</p>
             </div>
