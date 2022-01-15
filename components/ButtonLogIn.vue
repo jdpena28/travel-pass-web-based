@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-max rounded-xl p-[3px] bg-gradient-to-r from-blue-600 to-violet-600">
+    class="w-max rounded-xl cursor-pointer p-[3px] bg-gradient-to-r from-blue-600 to-violet-600">
     <div :class="className">
       <img
         :src="require(`~/assets/images/logo/${logo}.svg`)"
