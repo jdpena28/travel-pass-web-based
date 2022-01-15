@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div @click="clickme"
     class="w-max rounded-xl cursor-pointer p-[3px] bg-gradient-to-r from-blue-600 to-violet-600">
     <div :class="className">
       <img
@@ -20,7 +20,13 @@ export default {
         "logo",
         "alt",
         "className",
-    ]
+        "clickAuth"
+    ],
+    methods: {
+        clickme() {
+            this.$emit("clickAuth");
+        }
+    }
 }
 </script>
 <style lang=""></style>

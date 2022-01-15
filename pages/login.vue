@@ -29,8 +29,8 @@
                 <div class="w-full h-[2px]  bg-slate-800 rounded-full"></div>
               </div>
               <div class="space-y-2 mt-3 flex flex-col items-center">
-                <ButtonLogIn className="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg" logo="google" btnText = 'LOGIN WITH GOOGLE' alt = 'google'/>
-                <ButtonLogIn className="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg" logo="facebook" btnText = 'LOGIN WITH FACEBOOK' alt = 'facebook'/>
+                <ButtonLogIn v-on:clickAuth="googleLogIn" className="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg" logo="google" btnText = 'LOGIN WITH GOOGLE' alt = 'google'/>
+                <ButtonLogIn v-on:clickAuth="facebookLogIn" className="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg" logo="facebook" btnText = 'LOGIN WITH FACEBOOK' alt = 'facebook'/>
             </div>
           </div>
         </div>
@@ -38,11 +38,37 @@
     </section>
 </template>
 <script>
+import {getAuth, signInWithPopup ,GoogleAuthProvider,FacebookAuthProvider } from "firebase/auth";
+
+
+const auth = getAuth();
 export default {
     name: "LoginPage",
     head() {
         return {
             title: "1 Bataan | Login"
+        }
+    },
+    methods: {
+        googleLogIn() {
+          const provider = new GoogleAuthProvider();
+            signInWithPopup(auth,provider)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        },
+        facebookLogIn() {
+          const provider = new FacebookAuthProvider();
+            signInWithPopup(auth,provider)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         }
     }
 }
