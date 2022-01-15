@@ -2,7 +2,8 @@
     <section
       id="log-in"
       class="h-screen w-full bg-cover">
-      <div class="container h-full flex justify-center items-center mx-auto">
+      <NavigationBar/>
+      <div class="container h-[90%] flex justify-center items-center mx-auto">
         <!--insert your code here-->
         <div  class="bg-white/30 backdrop-blur-md flex justify-end w-[75%] h-[75%] rounded-3xl">
           <div id="card" class="h-full relative  w-[50%] rounded-3xl shadow-lg">
