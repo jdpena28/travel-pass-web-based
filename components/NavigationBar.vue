@@ -1,16 +1,16 @@
 <template>
      <nav class="sticky top-0 z-50 backdrop-filter backdrop-blur-sm bg-opacity-50 shadow">
           <nuxt-link to="/">
-               <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Home</a>
+               <a class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Home</a>
           </nuxt-link>
           <nuxt-link to="/login">
-               <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Get-Pass</a>
+               <a class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Get-Pass</a>
           </nuxt-link>  
           <nuxt-link to="/infoboard">
-               <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Info-Board</a>
+               <a class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">Info-Board</a>
           </nuxt-link> 
           <nuxt-link to="/about">
-               <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">About</a>
+               <a class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl" href="">About</a>
           </nuxt-link>             
      </nav>
 </template>

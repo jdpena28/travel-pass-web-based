@@ -5,7 +5,7 @@
       <NavigationBar/>
       <div class="container h-[90%] flex justify-center items-center mx-auto">
         <!--insert your code here-->
-        <div  class="bg-white/30 backdrop-blur-md flex justify-end w-[75%] h-[75%] rounded-3xl">
+        <div  class="bg-white/30 backdrop-blur-md flex justify-end w-[75%] h-[79%]  rounded-3xl">
           <div id="card" class="h-full relative  w-[50%] rounded-3xl shadow-lg">
             <img class="h-max w-max absolute inset-0 m-auto" src="~/assets/images/form_illustration.png" alt="Form Illustration" height="329.67px" width="244px" >
           </div>
@@ -21,7 +21,7 @@
                   <a href="#">Forgot Password?</a>
                 </div>
                 <div class="w-max text-center p-[3px] rounded-full  bg-gradient-to-r  from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
-                <button type="submit" class="bg-white px-16 py-1 rounded-full">Submit</button>
+                <button type="submit" class="bg-white px-16 py-1 font-semibold rounded-full">Submit</button>
                 </div>
               </form>
               <div class="flex justify-around items-center gap-x-4 px-9 mt-4">
@@ -32,6 +32,10 @@
               <div class="space-y-2 mt-3 flex flex-col items-center">
                 <ButtonLogIn v-on:clickAuth="googleLogIn" className="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg" logo="google" btnText = 'LOGIN WITH GOOGLE' alt = 'google'/>
                 <ButtonLogIn v-on:clickAuth="facebookLogIn" className="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg" logo="facebook" btnText = 'LOGIN WITH FACEBOOK' alt = 'facebook'/>
+            </div>
+            <div class="flex text-sm justify-center gap-x-3 mt-1">
+                <p>Don't have an Account ?</p>
+                <p class="font-semibold text-red-500">Register Here</p>
             </div>
           </div>
         </div>
