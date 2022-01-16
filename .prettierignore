@@ -94,3 +94,14 @@ sw.*
 
 # Vim swap files
 *.swp
+
+package.json
+package-lock.json
+README.md
+tailwind.config.js
+nuxt.config.js
+.eslintrc.js
+.prettierrc
+jsconfig.json
+
+
