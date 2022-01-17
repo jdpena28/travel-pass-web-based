@@ -2,15 +2,11 @@
    <section
       id="landing-page"
       class="h-screen w-full bg-cover">
+      
+      <NavigationBar/>
       <div class="container mx-auto">
         <!--insert your code here-->
-        <nav>
-          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Home</a>
-          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">Get-Pass</a>
-          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">FAQ</a>
-          <a class="px-4 py-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-500 rounded-xl" href="">About</a>  
-         </nav>
-        <div class="space-y-2">
+        <div class="mt-12 space-y-2 ">
           <h1 class="text-blue-800 font-bold text-4xl">1 Bataan</h1>
           <h1 class="text-blue-800 font-medium text-4xl">Travel Pass System</h1>
           <p class="w-96 text-left leading-7 text-lg pr-2">
@@ -41,14 +37,7 @@ export default {
 body {
     font-family: 'Poppins', sans-serif;
 }
-nav{
-    font-size: 1.4rem;
-    position: sticky;
-    font-weight: 600;
-    text-align: right;
-    padding: 1.2rem;
-    word-spacing: 4rem;
-}
+
 #landing-page {
    background-image: url('~assets/images/road.png')
 }

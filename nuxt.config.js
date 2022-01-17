@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'travelpass-system',
+    title: '1Bataan | Travel Pass System',
     htmlAttrs: {
       lang: 'en',
     },
@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/1bataan-logo-small-1.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -23,7 +23,9 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/firebase.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
