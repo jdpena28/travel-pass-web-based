@@ -2,7 +2,11 @@
     <section
       id="info-board"
       class="h-screen w-full bg-cover">
-      <NavigationBar/>
+    
+     <NavigationBar/>
+      <div class="infoheader">
+          <h1 class="Upd">BATAAN COVID-19 <span style="color:red;">UPDATE</span></h1>
+         </div>   
       <div class="container flex justify-center items-center mx-auto">
         <!--insert your code here-->
         <h1 class="text-xl font-semibold"></h1>
@@ -48,5 +52,18 @@ export default {
 }
 </script>
 <style scoped>
-    
+ 
+.infoheader{
+    padding-align: 1000;
+    margin-top: 4.7rem;
+    color:black;
+    margin-bottom:3rem;
+}
+.Upd{
+    text-align: center;
+    font-weight: 700;
+    font-size: 4.1rem;
+    color:rgba(12, 104, 237, 1);
+
+}
 </style>
