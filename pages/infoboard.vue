@@ -4,12 +4,12 @@
       class="h-screen w-full bg-cover">
     
      <NavigationBar/>
-      <div class="infoheader">
-          <h1 class="Upd">BATAAN COVID-19 <span style="color:red;">UPDATE</span></h1>
-         </div>   
-      <div class="container flex justify-center items-center mx-auto">
+       
+      <div class="container mx-auto">
         <!--insert your code here-->
-        <h1 class="text-xl font-semibold"></h1>
+        <div class="infoheader">
+          <h1 class="Upd">BATAAN COVID-19 <span style="color:red;">UPDATE</span></h1>
+        </div>  
         <div class="flex justify-center items-center w-full h-[80%]">
           <div class="grid h-[90%] w-[50%] mx-2 my-2">
             <div class="flex flex-col justify-center items-center col-span-2 h-[90%] w-[90%] mx-auto my-4 space-y-4">
@@ -54,10 +54,9 @@ export default {
 <style scoped>
  
 .infoheader{
-    padding-align: 1000;
-    margin-top: 4.7rem;
+    margin-top: 4.4rem;
     color:black;
-    margin-bottom:3rem;
+    margin-bottom:2.3rem;
 }
 .Upd{
     text-align: center;
