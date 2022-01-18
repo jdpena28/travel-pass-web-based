@@ -16,7 +16,8 @@ module.exports = {
   }]},
   ignorePatterns: ['store/**/*.js'],
   
-  /* rules: {
+  rules: {
     "vue/attribute-hyphenation": ["error", "never"],
-  }, */
+  },
+  
 }

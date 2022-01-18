@@ -22,7 +22,7 @@
         >Info-Board</a
       >
     </nuxt-link>
-    <nuxt-link to="/about">
+    <nuxt-link to="/signup">
       <a
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
         href=""
