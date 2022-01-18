@@ -53,13 +53,42 @@
         <div class="flex flex-col w-full rounded-md pl-32 py-1 bg-cyan-500">
             <p class="text-xl font-bold text-white">Travel Information</p>
         </div> 
-        <form action="">
-            <SignUp class="w-[30%]"
+        
+        <form class= "w-full flex flex-wrap px-28" action="">
+        <div class="w-full flex gap-x-[10%]">  
+        <SignUp class="w-[30%]"
             type="String"
             label="From"
-            placeholder="Orani, Bataan" />
+            placeholder="Manila" />
+        <SignUp class="w-[20%]"
+            type="Date"
+            label="Arrival Date" />
+         <SignUp class="w-[30%]"
+            type="String"
+            label="Purpose of Visit"
+            placeholder="e.g" />
+        </div>
+        <div class="w-full flex gap-x-[10%]">  
+        <SignUp class="w-[30%]"
+            type="String"
+            label="Destination"
+            placeholder="Balanga, Bataan" />
+        <SignUp class="w-[20%]"
+            type="Date"
+            label="Exit Date" />
+         <SignUp class="w-[30%]"
+            type="String"
+            label="Mode of tranport"
+            placeholder="SUV" />
+
+            
+
+
+    </div>
+
         </form>
     </div>
+    
     </section>
 </template>
 
