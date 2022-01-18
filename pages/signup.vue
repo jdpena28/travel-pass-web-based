@@ -39,6 +39,7 @@
             label="Birthday"
             placeholder="B" />
         </div>   
+        
         <div class="w-full flex gap-x-[10%]">  
         <SignUp class="w-[30%]"
             type="Number"
@@ -49,12 +50,9 @@
             label="Travel Requirements"
             placeholder="Upload Files" />
         </div> 
-        </form>
-        <div class="flex flex-col w-full rounded-md pl-32 py-1 bg-cyan-500">
+        <div class="flex flex-col w-full rounded-md pl-15 py-1 bg-cyan-500">
             <p class="text-xl font-bold text-white">Travel Information</p>
         </div> 
-        
-        <form class= "w-full flex flex-wrap px-28" action="">
         <div class="w-full flex gap-x-[10%]">  
         <SignUp class="w-[30%]"
             type="String"
@@ -80,13 +78,13 @@
             type="String"
             label="Mode of tranport"
             placeholder="SUV" />
-
-            
-
-
     </div>
-
         </form>
+        
+        
+        
+      
+
     </div>
     
     </section>
