@@ -2,93 +2,82 @@
    <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
     <div class="container mx-auto space-y-2"> 
-        <div class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2">
-             <br><br><br><br><br><br>                       
+        <div class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2 pb-36">                      
         </div>
-        <div class="flex flex-col w-full pl-32 mx-auto">
+        <div class="flex flex-col w-[full] pl-32 mx-auto">
             <p class="text-xl font-bold text-cyan-400">Personal Information</p>
         </div>
         <form
-        class="w-full px-28 flex flex-wrap mx-auto mb-16"
+        class="w-full flex flex-wrap mx-auto pl-28"
         action="">
-        <div class="w-full flex gap-x-[10%]">
+        <div class="w-full flex gap-x-[5%]">
         <SignUp class="w-[30%] "
-            type="String"
+            type="text"
             label="Last Name"
             placeholder="Licnep" />
         <SignUp class="w-[30%] "
-            type="String"
+            type="text"
             label="First Name"
             placeholder="Rodis" />
         <SignUp class="w-[20%]"
-            type="String"
+            type="text"
             label="Middle"
             placeholder="B" />
         </div>
-        <div class="w-full flex gap-x-[10%]"> 
+        <div class="w-full flex gap-x-[5%]"> 
         <SignUp class="w-[15%]"
-            type="Number"
+            type="number"
             label="Age"
-            placeholder="e.g. 18" />
+            placeholder="e.g 18" />
         <SignUp class="w-[35%]"
-            type="String"
+            type="email"
             label="Email Address"
             placeholder="deeznut@gmail.com" />
         <SignUp class="w-[30%]"
             type="date"
-            label="Birthday"
-            placeholder="B" />
+            label="Birthday"/>
         </div>   
-        <div class="w-full flex gap-x-[10%]">  
+        <div class="w-full flex gap-x-[5%]">  
         <SignUp class="w-[30%]"
-            type="Number"
+            type="number"
             label="Contact Number"
             placeholder="e.g 0912" />
         <SignUp class="w-[30%]"
-            type="Number"
+            type="File"
             label="Travel Requirements"
             placeholder="Upload Files" />
         </div> 
-        </form>
-        <div class="flex flex-col w-full rounded-md pl-32 py-1 bg-cyan-500">
+        <div class="flex w-[150%] pl-32 rounded-md bg-cyan-500 ml-[-7rem]">
             <p class="text-xl font-bold text-white">Travel Information</p>
         </div> 
-        
-        <form class= "w-full flex flex-wrap px-28" action="">
-        <div class="w-full flex gap-x-[10%]">  
+        <div class="w-full flex gap-x-[5%]">  
         <SignUp class="w-[30%]"
-            type="String"
+            type="text"
             label="From"
             placeholder="Manila" />
         <SignUp class="w-[20%]"
-            type="Date"
+            type="date"
             label="Arrival Date" />
          <SignUp class="w-[30%]"
-            type="String"
+            type="text"
             label="Purpose of Visit"
             placeholder="e.g" />
         </div>
-        <div class="w-full flex gap-x-[10%]">  
+        <div class="w-full flex gap-x-[5%]">  
         <SignUp class="w-[30%]"
-            type="String"
+            type="text"
             label="Destination"
             placeholder="Balanga, Bataan" />
         <SignUp class="w-[20%]"
             type="Date"
             label="Exit Date" />
          <SignUp class="w-[30%]"
-            type="String"
+            type="text"
             label="Mode of tranport"
             placeholder="SUV" />
-
-            
-
-
-    </div>
-
+        </div>
         </form>
     </div>
-    
     </section>
 </template>
 

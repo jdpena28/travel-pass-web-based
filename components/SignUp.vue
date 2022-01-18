@@ -1,14 +1,14 @@
 <template>
-  <label class="w-full font-semibold text-sm text-cyan-500 p-4" :for="type">
+  <label class="w-full font-semibold text-sm text-cyan-500 p-4" :for="labelForSignUp">
     {{ label }}<br />
-    <div
-      class="rounded bg-gradient-to-r pb-[2px] from-[#e05252] via-[#6588df] to-[#15EEFC]">
       <input
-        class="rounded pl-2 text-black text-lg bg-gray-50 w-full outline-none mb-[1px] p-1"
+        class="rounded pl-2 text-black text-lg bg-gray-50 w-full outline-none mb-[4px]"
         :type="type"
-        :name="type"
+        :name="labelForSignUp"
         :placeholder="placeholder"
         required />
+    <div
+      class="rounded bg-gradient-to-r pb-[3px] from-[#e05252] via-[#6588df] to-[#15EEFC] mb-1 ">
     </div>
     </label>
 </template>
