@@ -7,6 +7,8 @@
         class="border-2 rounded-full pl-2 w-full outline-none"
         :type="type"
         :name="type"
+        :value="value"
+        @input="$emit('input', $event.target.value)"
         :placeholder="placeholder"
         required />
     </div>
@@ -15,20 +17,8 @@
 <script>
 export default {
   name: 'InputField',
-  props: {
-    type: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    placeholder: {
-      type: String,
-      required: false,
-    },
-  },
-}
+  props:['type','label','placeholder','value'],
+  
+  }
 </script>
 <style lang=""></style>

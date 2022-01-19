@@ -24,10 +24,12 @@
             <InputField
               type="email"
               label="Email or Username"
+              v-model="email"
               placeholder="johndoe@email.com" />
             <InputField
               type="password"
               label="Password"
+              v-model="password"
               placeholder="password" />
             <div class="w-full text-right font-medium text-red-500">
               <a href="#">Forgot Password?</a>
@@ -35,6 +37,7 @@
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
               <button
+                @click.prevent="test"
                 type="submit"
                 class="bg-white px-16 py-1 font-semibold rounded-full">
                 Submit
@@ -83,6 +86,12 @@ export default {
   head() {
     return {
       title: '1 Bataan | Login',
+    }
+  },
+  data() {
+    return {
+      email : '',
+      password: '',
     }
   },
   methods: {
