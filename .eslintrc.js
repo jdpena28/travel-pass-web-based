@@ -14,10 +14,4 @@ module.exports = {
   rules: {'vue/multi-word-component-names': ['error', {
     'ignores': ['default']
   }]},
-  ignorePatterns: ['store/**/*.js'],
-  
-  rules: {
-    "vue/attribute-hyphenation": ["error", "never"],
-  },
-  
 }
