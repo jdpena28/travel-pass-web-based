@@ -11,7 +11,10 @@ module.exports = {
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   plugins: [],
   // add your custom rules here
-  rules: {'vue/multi-word-component-names': ['error', {
+  rules: {
+    'vue/multi-word-component-names': ['error', {
     'ignores': ['default']
-  }]},
+  }],
+    'vue/attribute-hyphenation': ['error', 'never'],
+},
 }
