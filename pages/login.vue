@@ -51,15 +51,15 @@
           </div>
           <div class="space-y-2 mt-3 flex flex-col items-center">
             <ButtonLogIn
-              class-name="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg"
+              className="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg"
               logo="google"
-              btn-text="LOGIN WITH GOOGLE"
+              btnText="LOGIN WITH GOOGLE"
               alt="google"
               @clickAuth="googleLogIn" />
             <ButtonLogIn
-              class-name="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg"
+              className="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg"
               logo="facebook"
-              btn-text="LOGIN WITH FACEBOOK"
+              btnText="LOGIN WITH FACEBOOK"
               alt="facebook"
               @clickAuth="facebookLogIn" />
           </div>
