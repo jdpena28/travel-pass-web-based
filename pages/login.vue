@@ -20,16 +20,17 @@
           </div>
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
+            @submit.prevent="handleSubmit"
             action="">
             <InputField
+              v-model="email"
               type="email"
               label="Email or Username"
-              v-model="email"
               placeholder="johndoe@email.com" />
             <InputField
+              v-model="password"
               type="password"
               label="Password"
-              v-model="password"
               placeholder="password" />
             <div class="w-full text-right font-medium text-red-500">
               <a href="#">Forgot Password?</a>
@@ -37,9 +38,8 @@
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
               <button
-                @click.prevent="test"
-                type="submit"
-                class="bg-white px-16 py-1 font-semibold rounded-full">
+                class="bg-white px-16 py-1 font-semibold rounded-full"
+                type="submit">
                 Submit
               </button>
             </div>
@@ -75,6 +75,7 @@
 <script>
 import {
   getAuth,
+  signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
@@ -83,15 +84,15 @@ import {
 const auth = getAuth()
 export default {
   name: 'LoginPage',
-  head() {
-    return {
-      title: '1 Bataan | Login',
-    }
-  },
-  data() {
+   data() {
     return {
       email : '',
       password: '',
+    }
+  },
+  head() {
+    return {
+      title: '1 Bataan | Login',
     }
   },
   methods: {
@@ -99,7 +100,9 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result)
+          this.$store.commit('SET_ACCESS_TOKEN',result)
+          this.$store.commit('SET_AUTH_GOOGLE',result)
+          this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
           console.log(error)
@@ -109,12 +112,22 @@ export default {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result)
+          
         })
         .catch((error) => {
           console.log(error)
         })
     },
+    handleSubmit(){
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((result) => {
+          this.$store.commit('SET_ACCESS_TOKEN',result)
+          this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
   },
 }
 </script>

@@ -3,7 +3,8 @@
     <NavigationBar />
     <div class="container mx-auto space-y-2">
       <div
-        class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2 pb-36"></div>
+        class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2 pb-36">
+       <h1 class="text-3xl"> HELLO: {{name}}</h1></div>
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-cyan-400">Personal Information</p>
       </div>
@@ -84,7 +85,7 @@
         <div class="w-full flex justify-between mx-3">
         <button
           class="rounded-xl text-lg bg-cyan-500 text-white font-bold px-8 py-2"
-          type="">
+          type="button" @click="backAtLogIn">
           Back
         </button>
         <button
@@ -101,7 +102,18 @@
 
 <script>
 export default {
-  name: 'SignupPage',
+  name: 'TravelForm',
+  middleware: ['authProtection'],
+  data(){
+   return {
+    name: this.$store.state.auth.displayName
+   }
+  },
+  methods: {
+    backAtLogIn(){
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
 

@@ -28,9 +28,6 @@ export default {
       title: '1 Bataan | Get Pass',
     }
   },
-  mounted() {
-    alert(this.$store.state.login.email)
-  },
 }
 </script>
 <style>
