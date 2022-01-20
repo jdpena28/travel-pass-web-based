@@ -20,23 +20,27 @@
           </div>
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
-            action="">
+            action=""
+            @submit.prevent="handleSubmit"
+            >
             <InputField
+              v-model="email"
               type="email"
               label="Email or Username"
               placeholder="johndoe@email.com" />
             <InputField
+              v-model="password"
               type="password"
               label="Password"
               placeholder="password" />
-            <div class="w-full text-right font-medium text-red-500">
-              <a href="#">Forgot Password?</a>
+            <div class="w-full cursor-pointer text-right font-medium text-red-500">
+              <p @click="resetPassword" href="">Forgot Password?</p>
             </div>
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
               <button
-                type="submit"
-                class="bg-white px-16 py-1 font-semibold rounded-full">
+                class="bg-white px-16 py-1 font-semibold rounded-full"
+                type="submit">
                 Submit
               </button>
             </div>
@@ -48,15 +52,15 @@
           </div>
           <div class="space-y-2 mt-3 flex flex-col items-center">
             <ButtonLogIn
-              class-name="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg"
+              className="w-full  flex gap-x-3 px-[1.9rem] py-1 items-center bg-white rounded-lg"
               logo="google"
-              btn-text="LOGIN WITH GOOGLE"
+              btnText="LOGIN WITH GOOGLE"
               alt="google"
               @clickAuth="googleLogIn" />
             <ButtonLogIn
-              class-name="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg"
+              className="w-full flex gap-x-3 px-5 py-1 items-center bg-white rounded-lg"
               logo="facebook"
-              btn-text="LOGIN WITH FACEBOOK"
+              btnText="LOGIN WITH FACEBOOK"
               alt="facebook"
               @clickAuth="facebookLogIn" />
           </div>
@@ -72,14 +76,22 @@
 <script>
 import {
   getAuth,
+  signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  sendPasswordResetEmail,
 } from 'firebase/auth'
 
 const auth = getAuth()
 export default {
   name: 'LoginPage',
+   data() {
+    return {
+      email : '',
+      password: '',
+    }
+  },
   head() {
     return {
       title: '1 Bataan | Login',
@@ -90,7 +102,8 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result)
+          this.$store.commit('SET_AUTH',result)
+          this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
           console.log(error)
@@ -100,12 +113,31 @@ export default {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result)
+          
         })
         .catch((error) => {
           console.log(error)
         })
     },
+    handleSubmit(){
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((result) => {
+          this.$store.commit('SET_AUTH',result)
+          this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    resetPassword(){
+      sendPasswordResetEmail(auth, this.email)
+        .then((result) => {
+          console.log(result)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
   },
 }
 </script>
