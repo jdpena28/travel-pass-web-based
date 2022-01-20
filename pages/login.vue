@@ -20,8 +20,9 @@
           </div>
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
+            action=""
             @submit.prevent="handleSubmit"
-            action="">
+            >
             <InputField
               v-model="email"
               type="email"
@@ -32,8 +33,8 @@
               type="password"
               label="Password"
               placeholder="password" />
-            <div class="w-full text-right font-medium text-red-500">
-              <a href="#">Forgot Password?</a>
+            <div class="w-full cursor-pointer text-right font-medium text-red-500">
+              <p @click="resetPassword" href="">Forgot Password?</p>
             </div>
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
@@ -79,6 +80,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
+  sendPasswordResetEmail,
 } from 'firebase/auth'
 
 const auth = getAuth()
@@ -100,8 +102,7 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          this.$store.commit('SET_ACCESS_TOKEN',result)
-          this.$store.commit('SET_AUTH_GOOGLE',result)
+          this.$store.commit('SET_AUTH',result)
           this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
@@ -121,8 +122,17 @@ export default {
     handleSubmit(){
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((result) => {
-          this.$store.commit('SET_ACCESS_TOKEN',result)
+          this.$store.commit('SET_AUTH',result)
           this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    resetPassword(){
+      sendPasswordResetEmail(auth, this.email)
+        .then((result) => {
+          console.log(result)
         })
         .catch((error) => {
           console.log(error)
