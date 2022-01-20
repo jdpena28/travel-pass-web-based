@@ -5,21 +5,20 @@ export const state = () => ({
   },
   auth:{
     token:'',
-    displayName: ''
+    displayName: '',
+    email:''
   },
-  token: '',
 })
 
 export const mutations = {
   increment(state) {
     state.counter++
   },
-  SET_AUTH_GOOGLE(state, auth) {
+  SET_AUTH(state, auth) {
     state.auth = {
-      displayName: auth.user.displayName
+      token: auth.user.accessToken,
+      displayName: auth.user.displayName,
+      email: auth.user.email
     }
   },
-  SET_ACCESS_TOKEN(state, token) {
-    state.token = token.user.accessToken
-  }
 }
