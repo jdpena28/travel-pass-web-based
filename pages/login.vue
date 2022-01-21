@@ -23,6 +23,7 @@
             action=""
             @submit.prevent="handleSubmit">
             <InputField
+              key="email"
               v-model="email"
               type="email"
               label="Email or Username"
@@ -82,8 +83,15 @@ import {
   FacebookAuthProvider,
   sendPasswordResetEmail,
 } from 'firebase/auth'
-
+import Vue from 'vue'
+import VueToast from 'vue-toast-notification'
+import 'vue-toast-notification/dist/theme-sugar.css'
+Vue.use(VueToast, {
+  position: 'bottom',
+  duration: 2000,
+})
 const auth = getAuth()
+
 export default {
   name: 'LoginPage',
   data() {
@@ -107,11 +115,15 @@ export default {
         })
         .catch((error) => {
           console.log(error)
+          Vue.$toast.error(
+            'Providers Authentication Error, Try Different Login Method'
+          )
         })
     },
     facebookLogIn() {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
+<<<<<<< HEAD
         .then((result) => {})
         .catch((error) => {
           console.log(error)
@@ -129,13 +141,50 @@ export default {
     },
     resetPassword() {
       sendPasswordResetEmail(auth, this.email)
+=======
+>>>>>>> 246e8d77307ee77e57f7ab057c10101a2b344c8c
         .then((result) => {
           console.log(result)
         })
         .catch((error) => {
           console.log(error)
+          Vue.$toast.error(
+            'Providers Authentication Error, Try Different Login Method'
+          )
         })
     },
+<<<<<<< HEAD
+=======
+    handleSubmit() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((result) => {
+          this.$store.commit('SET_AUTH', result)
+          this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          if (error.code === 'auth/user-not-found') {
+            Vue.$toast.error('User Not Found')
+          } else if (error.code === 'auth/wrong-password') {
+            Vue.$toast.error('Wrong Password')
+          } else {
+            Vue.$toast.error('Something Went Wrong')
+          }
+        })
+    },
+    resetPassword() {
+      if (!this.email) {
+        Vue.$toast.error('Please enter your email address at input field')
+      } else {
+        sendPasswordResetEmail(auth, this.email)
+          .then((result) => {
+            Vue.$toast.success('Password Reset send via Email')
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    },
+>>>>>>> 246e8d77307ee77e57f7ab057c10101a2b344c8c
   },
 }
 </script>

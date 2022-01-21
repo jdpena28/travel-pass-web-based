@@ -6,7 +6,7 @@
      
       <div class="infoheader">
         <h1 class="Upd">
-          BATAAN COVID-19 <span style="color: red">UPDATE</span>
+          PHILIPPINES COVID-19 <span style="color: red">UPDATE</span>
         </h1>
       </div>
       <div class="flex justify-center items-center w-full h-[80%]">

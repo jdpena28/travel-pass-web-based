@@ -1,6 +1,6 @@
 <template>
   <label
-    class="w-full font-semibold text-sm text-cyan-500 p-4"
+    class="w-full font-semibold text-sm text-blue-500 p-4"
     :for="labelForSignUp">
     {{ labelForSignUp }}<br />
     <input

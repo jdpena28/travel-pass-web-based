@@ -2,32 +2,24 @@
   <nav
     class="sticky top-0 z-50 backdrop-filter backdrop-blur-sm bg-opacity-50 shadow">
     <NuxtLink to="/">
-      <a
+      <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        href=""
-        >Home</a
-      >
+        >Home</span>
     </NuxtLink>
     <NuxtLink to="/login">
-      <a
+      <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        href=""
-        >Get-Pass</a
-      >
+        >Get-Pass</span>
     </NuxtLink>
     <NuxtLink to="/infoboard">
-      <a
+      <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        href=""
-        >Info-Board</a
-      >
+        >Info-Board</span>
     </NuxtLink>
     <NuxtLink to="/about">
-      <a
+      <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        href=""
-        >About</a
-      >
+        >About</span>
     </NuxtLink>
   </nav>
 </template>
