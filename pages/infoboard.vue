@@ -1,8 +1,9 @@
 <template>
   <section id="info-board" class="h-screen w-full bg-cover">
+    
     <NavigationBar />
     <div class="container mx-auto">
-      <!--insert your code here-->
+     
       <div class="infoheader">
         <h1 class="Upd">
           BATAAN COVID-19 <span style="color: red">UPDATE</span>
@@ -66,4 +67,8 @@ export default {
   font-size: 4.1rem;
   color: rgba(12, 104, 237, 1);
 }
+  #info-board
+  {
+    background-image: url('~assets/images/covid-board-background.jpg ');
+  }
 </style>

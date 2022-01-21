@@ -3,10 +3,10 @@ export const state = () => ({
     email: 'email123',
     password: 'pass',
   },
-  auth:{
-    token:'',
+  auth: {
+    token: '',
     displayName: '',
-    email:''
+    email: '',
   },
 })
 
@@ -18,7 +18,7 @@ export const mutations = {
     state.auth = {
       token: auth.user.accessToken,
       displayName: auth.user.displayName,
-      email: auth.user.email
+      email: auth.user.email,
     }
   },
 }
