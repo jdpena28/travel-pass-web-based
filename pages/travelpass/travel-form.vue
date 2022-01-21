@@ -6,7 +6,7 @@
         <h1 class="text-3xl">HELLO: {{ name }}</h1>
       </div>
       <div class="flex flex-col w-[full] pl-32 mx-auto">
-        <p class="text-xl font-bold text-cyan-400">Personal Information</p>
+        <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
       <form class="w-full flex flex-wrap mx-auto pl-28" action="">
         <div class="w-full flex gap-x-[5%]">
@@ -51,7 +51,7 @@
             labelForSignUp="Travel Requirements"
             placeholder="Upload Files" />
         </div>
-        <div class="flex w-[150%] pl-32 rounded-md bg-cyan-500 ml-[-7rem]">
+        <div class="flex w-[150%] pl-32 rounded-md bg-blue-500 ml-[-7rem]">
           <p class="text-xl font-bold text-white">Travel Information</p>
         </div>
         <div class="w-full flex gap-x-[5%]">
@@ -82,13 +82,13 @@
         </div>
         <div class="w-full flex justify-between mx-3">
           <button
-            class="rounded-xl text-lg bg-cyan-500 text-white font-bold px-8 py-2"
+            class="rounded-xl text-lg bg-blue-500 text-white font-bold px-8 py-2"
             type="button"
             @click="backAtLogIn">
             Back
           </button>
           <button
-            class="rounded-xl text-lg bg-cyan-500 text-white font-bold px-8 py-2"
+            class="rounded-xl text-lg bg-blue-500 text-white font-bold px-8 py-2"
             type="submit">
             Submit
           </button>
@@ -101,10 +101,12 @@
 <script>
 export default {
   name: 'TravelForm',
-  middleware: ['authProtection'],
+  // middleware: ['authProtection'],
   data() {
+    const user = this.$store.state.auth
     return {
-      name: this.$store.state.auth.displayName,
+      name: user.displayName,
+      email: user.email,
     }
   },
   methods: {
