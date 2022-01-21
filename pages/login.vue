@@ -21,9 +21,9 @@
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
             action=""
-            @submit.prevent="handleSubmit"
-            >
+            @submit.prevent="handleSubmit">
             <InputField
+              key="email"
               v-model="email"
               type="email"
               label="Email or Username"
@@ -33,8 +33,9 @@
               type="password"
               label="Password"
               placeholder="password" />
-            <div class="w-full cursor-pointer text-right font-medium text-red-500">
-              <p @click="resetPassword" href="">Forgot Password?</p>
+            <div
+              class="w-full cursor-pointer text-right font-medium text-red-500">
+              <p href="" @click="resetPassword">Forgot Password?</p>
             </div>
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
@@ -82,13 +83,20 @@ import {
   FacebookAuthProvider,
   sendPasswordResetEmail,
 } from 'firebase/auth'
-
+import Vue from 'vue'
+import VueToast from 'vue-toast-notification'
+import 'vue-toast-notification/dist/theme-sugar.css'
+Vue.use(VueToast,{
+  position: 'bottom',
+  duration: 2000,
+})
 const auth = getAuth()
+
 export default {
   name: 'LoginPage',
-   data() {
+  data() {
     return {
-      email : '',
+      email: '',
       password: '',
     }
   },
@@ -102,42 +110,54 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          this.$store.commit('SET_AUTH',result)
+          this.$store.commit('SET_AUTH', result)
           this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
           console.log(error)
+          Vue.$toast.error('Providers Authentication Error, Try Different Login Method')
         })
     },
     facebookLogIn() {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-    handleSubmit(){
-      signInWithEmailAndPassword(auth, this.email, this.password)
-        .then((result) => {
-          this.$store.commit('SET_AUTH',result)
-          this.$router.push('/travelpass/travel-form')
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-    resetPassword(){
-      sendPasswordResetEmail(auth, this.email)
-        .then((result) => {
           console.log(result)
         })
         .catch((error) => {
           console.log(error)
+          Vue.$toast.error('Providers Authentication Error, Try Different Login Method')
         })
-    }
+    },
+    handleSubmit() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((result) => {
+          this.$store.commit('SET_AUTH', result)
+          this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          if(error.code === 'auth/user-not-found') {
+            Vue.$toast.error('User Not Found')
+          } else if(error.code === 'auth/wrong-password') {
+            Vue.$toast.error('Wrong Password')
+          } else {
+            Vue.$toast.error('Something Went Wrong')
+          }
+        })
+    },
+    resetPassword() {
+      if (!this.email) {
+        Vue.$toast.error("Please enter your email address at input field")
+      } else {
+        sendPasswordResetEmail(auth, this.email)
+          .then((result) => {
+            Vue.$toast.success("Password Reset send via Email")
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    },
   },
 }
 </script>
