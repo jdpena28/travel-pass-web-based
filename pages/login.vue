@@ -21,8 +21,7 @@
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
             action=""
-            @submit.prevent="handleSubmit"
-            >
+            @submit.prevent="handleSubmit">
             <InputField
               v-model="email"
               type="email"
@@ -33,8 +32,9 @@
               type="password"
               label="Password"
               placeholder="password" />
-            <div class="w-full cursor-pointer text-right font-medium text-red-500">
-              <p @click="resetPassword" href="">Forgot Password?</p>
+            <div
+              class="w-full cursor-pointer text-right font-medium text-red-500">
+              <p href="" @click="resetPassword">Forgot Password?</p>
             </div>
             <div
               class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
@@ -86,9 +86,9 @@ import {
 const auth = getAuth()
 export default {
   name: 'LoginPage',
-   data() {
+  data() {
     return {
-      email : '',
+      email: '',
       password: '',
     }
   },
@@ -102,7 +102,7 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
-          this.$store.commit('SET_AUTH',result)
+          this.$store.commit('SET_AUTH', result)
           this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
@@ -112,24 +112,22 @@ export default {
     facebookLogIn() {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
-        .then((result) => {
-          
-        })
+        .then((result) => {})
         .catch((error) => {
           console.log(error)
         })
     },
-    handleSubmit(){
+    handleSubmit() {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((result) => {
-          this.$store.commit('SET_AUTH',result)
+          this.$store.commit('SET_AUTH', result)
           this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
           console.log(error)
         })
     },
-    resetPassword(){
+    resetPassword() {
       sendPasswordResetEmail(auth, this.email)
         .then((result) => {
           console.log(result)
@@ -137,7 +135,7 @@ export default {
         .catch((error) => {
           console.log(error)
         })
-    }
+    },
   },
 }
 </script>
