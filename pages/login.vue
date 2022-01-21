@@ -164,4 +164,7 @@ export default {
   line-height: 0;
   font-size: 1.2rem;
 }
+#log-in {
+  background-image: url('~assets/images/signUpBackground.png');
+}
 </style>
