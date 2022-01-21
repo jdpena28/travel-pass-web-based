@@ -8,17 +8,16 @@
         :type="type"
         :name="type"
         :value="value"
-        @input="$emit('input', $event.target.value)"
         :placeholder="placeholder"
-        required />
+        required
+        @input="$emit('input', $event.target.value)" />
     </div>
   </label>
 </template>
 <script>
 export default {
   name: 'InputField',
-  props:['type','label','placeholder','value'],
-  
-  }
+  props: ['type', 'label', 'placeholder', 'value'],
+}
 </script>
 <style lang=""></style>
