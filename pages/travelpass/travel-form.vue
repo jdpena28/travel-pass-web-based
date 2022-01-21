@@ -103,12 +103,10 @@
 <script>
 export default {
   name: 'TravelForm',
-  // middleware: ['authProtection'],
+  middleware: ['authProtection'],
   data() {
-    const user = this.$store.state.auth
     return {
-      name: user.displayName,
-      email: user.email,
+      name: this.$store.state.auth.displayName,
     }
   },
   methods: {

@@ -126,6 +126,7 @@ export default {
         .then((result) => {
           console.log(result)
         })
+        .then((result) => {})
         .catch((error) => {
           console.log(error)
           Vue.$toast.error(
@@ -161,6 +162,13 @@ export default {
             console.log(error)
           })
       }
+      sendPasswordResetEmail(auth, this.email)
+        .then((result) => {
+          console.log(result)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
   },
 }
