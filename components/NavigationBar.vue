@@ -4,22 +4,26 @@
     <NuxtLink to="/">
       <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        >Home</span>
+        >Home</span
+      >
     </NuxtLink>
     <NuxtLink to="/login">
       <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        >Get-Pass</span>
+        >Get-Pass</span
+      >
     </NuxtLink>
     <NuxtLink to="/infoboard">
       <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        >Info-Board</span>
+        >Info-Board</span
+      >
     </NuxtLink>
     <NuxtLink to="/about">
       <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
-        >About</span>
+        >About</span
+      >
     </NuxtLink>
   </nav>
 </template>

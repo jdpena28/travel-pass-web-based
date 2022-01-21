@@ -123,6 +123,23 @@ export default {
     facebookLogIn() {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
+        .then((result) => {})
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    handleSubmit() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        .then((result) => {
+          this.$store.commit('SET_AUTH', result)
+          this.$router.push('/travelpass/travel-form')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    resetPassword() {
+      sendPasswordResetEmail(auth, this.email)
         .then((result) => {
           console.log(result)
         })

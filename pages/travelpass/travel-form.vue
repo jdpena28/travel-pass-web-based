@@ -1,12 +1,10 @@
 <template>
   <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
-    <h1 class="text-xl bg-green-300 mt-3 ml-2 p-3 rounded-xl w-max capitalize">
-      Welcome👋: John Henrich Dela Pena {{ name ? name : email }}
-    </h1>
-    <div class="container pb-3 mx-auto space-y-2">
-      <div
-        class="flex flex-col rounded-3xl w-full bg-blue-500 mt-2 pb-36"></div>
+    <div class="container mx-auto space-y-2">
+      <div class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2 pb-36">
+        <h1 class="text-3xl">HELLO: {{ name }}</h1>
+      </div>
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
