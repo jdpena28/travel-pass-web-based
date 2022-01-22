@@ -109,6 +109,11 @@ export default {
       name: this.$store.state.auth.displayName,
     }
   },
+  head() {
+    return {
+      title: '1Bataan | Travel Form',
+    }
+  },
   methods: {
     backAtLogIn() {
       this.$router.push('/login')

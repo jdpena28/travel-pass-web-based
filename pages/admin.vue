@@ -64,6 +64,11 @@
 <script>
 export default {
   name: 'AdminPage',
+  head() {
+    return {
+      title: '1 Bataan | Admin',
+    }
+  },
 }
 </script>
 
