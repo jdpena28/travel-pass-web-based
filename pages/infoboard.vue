@@ -77,6 +77,11 @@ export default {
       res,
     }
   },
+  head() {
+    return {
+      title: '1 Bataan | Info-Board',
+    }
+  },
 }
 </script>
 <style scoped>
