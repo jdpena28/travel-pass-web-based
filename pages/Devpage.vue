@@ -1,0 +1,86 @@
+<template>
+  <section id="Devpage" class="h-screen w-full bg-cover">
+    <NavigationBar />
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20"></div>
+      <div class="flex flex-wrap -m-4">
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div
+            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            <img
+              class="h-100 rounded w-full object-cover object-center mb-6"
+              src="~/assets/images/Johnhenrich.png"
+              alt="Picture" />
+            <h3
+              class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
+              John Henrich
+            </h3>
+            <p class="leading-relaxed text-base text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              rutrum justo faucibus tellus fermentum, non vulputate quam euismo
+            </p>
+          </div>
+        </div>
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div
+            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            <img
+              class="h-100 rounded w-full object-cover object-center mb-6"
+              src="~/assets/images/Sub.png"
+              alt="Picture" />
+            <h3
+              class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
+              Rovic Troy
+            </h3>
+            <p class="leading-relaxed text-base text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              rutrum justo faucibus tellus fermentum, non vulputate quam euismo
+            </p>
+          </div>
+        </div>
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div
+            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            <img
+              class="h-100 rounded w-full object-cover object-center mb-6"
+              src="~/assets/images/Sub.png"
+              alt="Picture" />
+            <h3
+              class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
+              Jefte
+            </h3>
+            <p class="leading-relaxed text-base text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              rutrum justo faucibus tellus fermentum, non vulputate quam euismo
+            </p>
+          </div>
+        </div>
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div
+            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            <img
+              class="h-100 rounded w-full object-cover object-center mb-6"
+              src="~/assets/images/Sub.png"
+              alt="Picture" />
+            <h3
+              class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
+              Francis Vien
+            </h3>
+            <p class="leading-relaxed text-base text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              rutrum justo faucibus tellus fermentum, non vulputate quam euismo
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'DevPage',
+}
+</script>
+
+<style></style>

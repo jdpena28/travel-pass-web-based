@@ -1,14 +1,14 @@
 <template>
   <section id="Sign-up" class="h-screen w-full bg-cover">
-    <div class="container h-[90%] flex justify-center items-center mx-auto">
+    <div class="container mt-40 flex justify-center items-center mx-auto">
       <div
         id="card items-center"
-        class="bg-blue-300 w-[35%] h-[65%] rounded-3xl shadow-lg">
+        class="bg-white w-[30%] rounded-3xl shadow-2xl">
         <div class="header">
           <h3 class="Create">Create a new account</h3>
           <p class="Continue.">To Continue</p>
         </div>
-        <form class="w-full px-8 flex flex-col items-center gap-y-2" action="">
+        <form class="w-full px-4 flex flex-col items-center gap-y-2" action="">
           <InputField
             v-model="email"
             type="email"
@@ -22,7 +22,7 @@
           <div
             class="w-full cursor-pointer text-right font-medium text-red-500"></div>
           <div
-            class="w-max text-center p-[3px] rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
+            class="w-max text-center p-[2px] mb-20 rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
             <button
               class="bg-white px-16 py-1 font-semibold rounded-full"
               type="Create">
@@ -32,7 +32,6 @@
         </form>
       </div>
     </div>
-
   </section>
 </template>
 
