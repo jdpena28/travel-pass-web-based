@@ -37,7 +37,7 @@
       <div
         class="bg-white flex justify-end relative w-[100%] h-[80%] rounded-[3rem] mt-20">
         <input
-          class="absolute bg-gray-100 hover: border-1 border-gray text-black py-2 pl-4 pr-12 w-[31%] rounded-full left-[65%] top-[3%]"
+          class="absolute bg-gray-100 hover: border-1 border-gray text-black py-2 pl-4 pr-12 w-[31%] outline-none rounded-full left-[65%] top-[3%]"
           type="search"
           placeholder="Search..." />
         <button
