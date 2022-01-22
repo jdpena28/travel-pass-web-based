@@ -1,11 +1,11 @@
 <template>
   <section id="ticket" class="h-screen w-full bg-cover">
     <NavigationBar />
-    <div class="container  mx-auto">
+    <div class="container mx-auto">
       <div
-        class="w-full flex flex-col justify-center items-center h-[90vh] relative mx-auto ">
+        class="w-full flex flex-col justify-center items-center h-[90vh] relative mx-auto">
         <img
-          class="w-[84%] flex justify-center items-center absolute "
+          class="w-[84%] flex justify-center items-center absolute"
           src="~/assets/images/bgtickets.png"
           alt="Ticket Background"
           height="720px"
@@ -13,7 +13,8 @@
         <div
           class="w-[84%] flex justify-center items-center bg-gradient-to-r p-[2%] from-[#58CF00] via-[#AFDD11] to-[#F39F14] rounded-b-[28px] absolute mt-[29%]"></div>
 
-        <div class="flex ml-[6rem] mb-[1rem] left-[17%] pr-[10rem] pt-[3rem] absolute">
+        <div
+          class="flex ml-[6rem] mb-[1rem] left-[17%] pr-[10rem] pt-[3rem] absolute">
           <h6 class="ml-[1rem]">
             From:<br /><span class="text-4xl font-extrabold">San Agustin</span
             ><br /><span class="text-red-500 text-2xl">MANILA</span><br /><span
@@ -34,8 +35,6 @@
             <p>Contact Number:<br /><span>092345678401</span></p>
             <p class="text-green-700">Status: <br /><span>APPROVED</span></p>
           </div>
-
-         
         </div>
 
         <div
@@ -65,23 +64,25 @@
           </div>
           <div class="flex-col top-[103%] left-[70%] absolute">
             <h5 class="text-sm mb-1">
-              From:<br /><span class="text-lg font-extrabold leading-none">San Agustin</span
-              ><br /><span class="text-red-500 text-base leading-none">MANILA</span
+              From:<br /><span class="text-lg font-extrabold leading-none"
+                >San Agustin</span
+              ><br /><span class="text-red-500 text-base leading-none"
+                >MANILA</span
               ><br /><span class="text-xs leading-none">July 02, 2022</span>
             </h5>
             <h5 class="text-sm">
-              To:<br /><span class="text-lg font-extrabold leading-none">Orani</span
-              ><br /><span class="text-red-500 text-base leading-none">BATAAN</span
+              To:<br /><span class="text-lg font-extrabold leading-none"
+                >Orani</span
+              ><br /><span class="text-red-500 text-base leading-none"
+                >BATAAN</span
               ><br /><span class="text-xs leading-none">July 09, 2022</span>
             </h5>
           </div>
-          <div
-            class="flex-col left-[69%] top-[310%] absolute pr-16 ">
+          <div class="flex-col left-[69%] top-[310%] absolute pr-16">
             <p>Passenger:<br /><span>John Henrich Dela Pena</span></p>
             <p>Transport:<br /><span>SUV</span></p>
           </div>
-          <div
-            class="flex-col absolute left-[85%] top-[310%]">
+          <div class="flex-col absolute left-[85%] top-[310%]">
             <p>Contact Number:<br /><span>092345678401</span></p>
             <p class="text-green-700">Status: <br /><span>APPROVED</span></p>
           </div>
@@ -110,5 +111,4 @@ span {
   color: black;
   font-weight: bold;
 }
-
 </style>
