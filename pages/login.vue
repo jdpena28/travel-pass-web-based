@@ -135,28 +135,6 @@ export default {
           this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
-          console.log(error)
-        })
-    },
-    resetPassword() {
-      sendPasswordResetEmail(auth, this.email)
-        .then((result) => {
-          console.log(result)
-        })
-        .catch((error) => {
-          console.log(error)
-          Vue.$toast.error(
-            'Providers Authentication Error, Try Different Login Method'
-          )
-        })
-    },
-    handleSubmit() {
-      signInWithEmailAndPassword(auth, this.email, this.password)
-        .then((result) => {
-          this.$store.commit('SET_AUTH', result)
-          this.$router.push('/travelpass/travel-form')
-        })
-        .catch((error) => {
           if (error.code === 'auth/user-not-found') {
             Vue.$toast.error('User Not Found')
           } else if (error.code === 'auth/wrong-password') {
