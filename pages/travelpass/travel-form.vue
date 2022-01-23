@@ -2,8 +2,15 @@
   <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
     <div class="container mx-auto space-y-2">
-      <div class="flex flex-col rounded-3xl w-full bg-cyan-500 mt-2 pb-36">
-        <h1 class="text-3xl">HELLO: {{ name }}</h1>
+      <div class="flex flex-col rounded-3xl w-full bg-blue-400 mt-2 ">
+       <img
+              class="h-40 flex-col rounded w-full object-none object-center mt-11 mb-5"
+              src="~/assets/images/Header.png"
+              alt="Picture" 
+              />
+        <h1 class=" text-sm text-blue-400">HELLO: {{ name }}</h1>
+       <!-- <h1 class=" text-center text-[4.2rem] font-extrabold text-white space-y-1 leading-none">ITS MORE FUN IN</h1>
+        <h1 class=" text-center text-9xl font-extrabold text-white leading-none">BATAAN</h1>-->
       </div>
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-blue-400">Personal Information</p>

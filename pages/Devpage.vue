@@ -6,7 +6,7 @@
       <div class="flex flex-wrap -m-4">
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div
-            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            class="bg-white bg-opacity-40 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
               src="~/assets/images/Johnhenrich.png"
@@ -19,11 +19,12 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               rutrum justo faucibus tellus fermentum, non vulputate quam euismo
             </p>
+            <p class="leading-relaxed text-base font-extrabold text-center mt-6 "> Back-end | Project Manager </p>
           </div>
         </div>
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div
-            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            class="bg-white bg-opacity-40 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
               src="~/assets/images/Sub.png"
@@ -36,11 +37,12 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               rutrum justo faucibus tellus fermentum, non vulputate quam euismo
             </p>
+             <p class="leading-relaxed text-base font-extrabold text-center mt-6 "> Front-end | UI Designer </p>
           </div>
         </div>
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div
-            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            class="bg-white bg-opacity-40 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
               src="~/assets/images/Sub.png"
@@ -53,11 +55,12 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               rutrum justo faucibus tellus fermentum, non vulputate quam euismo
             </p>
+             <p class="leading-relaxed text-base font-extrabold text-center mt-6 "> Front-end Developer </p>
           </div>
         </div>
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div
-            class="bg-white bg-opacity-40 p-6 rounded-lg border-solid border-2 border-black">
+            class="bg-white bg-opacity-40 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
               src="~/assets/images/Sub.png"
@@ -70,6 +73,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               rutrum justo faucibus tellus fermentum, non vulputate quam euismo
             </p>
+             <p class="leading-relaxed text-base font-extrabold text-center mt-6 "> UI Designer | DOC Specialist </p>
           </div>
         </div>
       </div>
