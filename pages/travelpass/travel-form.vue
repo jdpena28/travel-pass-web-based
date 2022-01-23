@@ -2,7 +2,7 @@
   <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
     <h1 class="text-xl bg-green-300 mt-3 ml-2 p-3 rounded-xl w-max capitalize">
-      Welcome👋: John Henrich Dela Pena {{ name ? name : email }}
+      Welcome👋: {{ name ? name : email }}
     </h1>
     <div class="container pb-3 mx-auto space-y-2">
       <div
@@ -10,19 +10,25 @@
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
-      <form class="w-full flex flex-wrap mx-auto pl-28" action="">
+      <form
+        class="w-full flex flex-wrap mx-auto pl-28"
+        action=""
+        @submit.prevent="handleSubmit">
         <div class="w-full flex gap-x-[5%]">
           <SignUp
+            v-model.lazy="form.lastName"
             class="w-[30%]"
             type="text"
             labelForSignUp="Last Name"
             placeholder="Licnep" />
           <SignUp
+            v-model.lazy="form.firstName"
             class="w-[30%]"
             type="text"
             labelForSignUp="First Name"
             placeholder="Rodis" />
           <SignUp
+            v-model.lazy="form.middleName"
             class="w-[20%]"
             type="text"
             labelForSignUp="Middle"
@@ -30,19 +36,26 @@
         </div>
         <div class="w-full flex gap-x-[5%]">
           <SignUp
+            v-model.lazy="form.age"
             class="w-[15%]"
             type="number"
             labelForSignUp="Age"
             placeholder="e.g 18" />
           <SignUp
+            v-model.lazy="form.email"
             class="w-[35%]"
             type="email"
             labelForSignUp="Email Address"
             placeholder="deeznut@gmail.com" />
-          <SignUp class="w-[30%]" type="date" labelForSignUp="Birthday" />
+          <SignUp
+            v-model.lazy="form.bday"
+            class="w-[30%]"
+            type="date"
+            labelForSignUp="Birthday" />
         </div>
         <div class="w-full flex gap-x-[5%]">
           <SignUp
+            v-model.lazy="form.contactNum"
             class="w-[30%]"
             type="number"
             labelForSignUp="Contact Number"
@@ -58,12 +71,18 @@
         </div>
         <div class="w-full flex gap-x-[5%]">
           <SignUp
+            v-model.lazy="form.from"
             class="w-[30%]"
             type="text"
             labelForSignUp="From"
             placeholder="Manila" />
-          <SignUp class="w-[20%]" type="date" labelForSignUp="Arrival Date" />
           <SignUp
+            v-model.lazy="form.arrivalDate"
+            class="w-[20%]"
+            type="date"
+            labelForSignUp="Arrival Date" />
+          <SignUp
+            v-model.lazy="form.purposeVisit"
             class="w-[30%]"
             type="text"
             labelForSignUp="Purpose of Visit"
@@ -71,12 +90,18 @@
         </div>
         <div class="w-full flex gap-x-[5%]">
           <SignUp
+            v-model.lazy="form.destination"
             class="w-[30%]"
             type="text"
             labelForSignUp="Destination"
             placeholder="Balanga, Bataan" />
-          <SignUp class="w-[20%]" type="Date" labelForSignUp="Exit Date" />
           <SignUp
+            v-model.lazy="form.exitDate"
+            class="w-[20%]"
+            type="Date"
+            labelForSignUp="Exit Date" />
+          <SignUp
+            v-model.lazy="form.modeOfTransport"
             class="w-[30%]"
             type="text"
             labelForSignUp="Mode of tranport"
@@ -103,10 +128,25 @@
 <script>
 export default {
   name: 'TravelForm',
-  middleware: ['authProtection'],
+  // middleware: ['authProtection'],
   data() {
     return {
       name: this.$store.state.auth.displayName,
+      form: {
+        lastName: '',
+        firstName: '',
+        middleName: '',
+        age: '',
+        email: '',
+        bday: '',
+        contactNum: '',
+        from: '',
+        arrivalDate: '',
+        purposeVisit: '',
+        destination: '',
+        exitDate: '',
+        modeOfTransport: '',
+      },
     }
   },
   head() {
@@ -115,8 +155,9 @@ export default {
     }
   },
   methods: {
-    backAtLogIn() {
-      this.$router.push('/login')
+    handleSubmit() {
+      this.$store.commit('SET_FORM', this.form)
+      console.log(this.$store.state.form)
     },
   },
 }
