@@ -13,17 +13,16 @@
         <div
           class="w-[84%] flex justify-center items-center bg-gradient-to-r p-[2%] from-[#58CF00] via-[#AFDD11] to-[#F39F14] rounded-b-[28px] absolute mt-[29%]"></div>
 
-        <div
-          class="flex ml-[6rem] mb-[1rem] left-[17%] pr-[10rem] pt-[3rem] absolute">
-          <h6 class="ml-[1rem]">
-            From:<br /><span class="text-4xl font-extrabold">San Agustin</span
+        <div class="flex left-[25%] bottom-[44%] pr-[2rem] absolute">
+          <h6 class="ml-[1rem] mr-[4rem]">
+            From:<br /><span class="text-3xl font-extrabold">San Agustin</span
             ><br /><span class="text-red-500 text-2xl">MANILA</span><br /><span
               class="text-xs"
               >July 02, 2022</span
             >
           </h6>
-          <h6 class="ml-[9rem]">
-            To:<br /><span class="text-4xl font-extrabold">Orani</span
+          <h6 class="ml-[1.5rem] pr-[12rem]">
+            To:<br /><span class="text-3xl font-extrabold">Orani</span
             ><br /><span class="text-red-500 text-2xl">BATAAN</span><br /><span
               class="text-xs"
               >July 09, 2022</span
@@ -53,32 +52,48 @@
             width="256px" />
 
           <div class="flex left-[23%] absolute">
-            <h2 class="text-4xl font-bold text-white">BATAAN TRAVEL PASS</h2>
+            <h2 id="title" class="text-4xl font-bold text-white">
+              BATAAN TRAVEL PASS
+            </h2>
           </div>
           <div class="flex right-[7%] absolute">
-            <h2 class="text-3xl font-bold text-white">
-              BOARDING PASS<br /><span class="text-xl text-white font-normal"
+            <h2 id="board-exit" class="text-3xl font-bold text-white">
+              BOARDING PASS<br /><span
+                id="board-exit"
+                class="text-xl text-white font-normal"
                 >Exit</span
               >
             </h2>
           </div>
-          <div class="flex-col top-[103%] left-[70%] absolute">
-            <h5 class="text-sm mb-1">
-              From:<br /><span class="text-lg font-extrabold leading-none"
+          <div id="right" class="flex-col top-[103%] left-[70%] absolute">
+            <h5 id="right" class="text-sm mb-1">
+              From:<br /><span
+                id="place"
+                class="text-lg font-extrabold leading-none"
                 >San Agustin</span
-              ><br /><span class="text-red-500 text-base leading-none"
+              ><br /><span
+                id="right"
+                class="text-red-500 text-base leading-none"
                 >MANILA</span
-              ><br /><span class="text-xs leading-none">July 02, 2022</span>
+              ><br /><span id="date" class="text-xs leading-none"
+                >July 02, 2022</span
+              >
             </h5>
-            <h5 class="text-sm">
-              To:<br /><span class="text-lg font-extrabold leading-none"
+            <h5 id="right" class="text-sm">
+              To:<br /><span
+                id="place"
+                class="text-lg font-extrabold leading-none"
                 >Orani</span
-              ><br /><span class="text-red-500 text-base leading-none"
+              ><br /><span
+                id="right"
+                class="text-red-500 text-base leading-none"
                 >BATAAN</span
-              ><br /><span class="text-xs leading-none">July 09, 2022</span>
+              ><br /><span id="date" class="text-xs leading-none"
+                >July 09, 2022</span
+              >
             </h5>
           </div>
-          <div class="flex-col left-[69%] top-[310%] absolute pr-16">
+          <div class="flex-col left-[68.5%] top-[310%] absolute pr-16">
             <p>Passenger:<br /><span>John Henrich Dela Pena</span></p>
             <p>Transport:<br /><span>SUV</span></p>
           </div>
@@ -88,6 +103,7 @@
           </div>
         </div>
         <div
+          id="line"
           class="flex justify-center items-center absolute border-black border-dashed border-l-2 h-[48vh] left-[65%]"></div>
       </div>
     </div>
@@ -110,5 +126,31 @@ p {
 span {
   color: black;
   font-weight: bold;
+}
+@media only screen and (max-width: 1280px) {
+  body {
+    font-size: 75%;
+  }
+
+  #board-exit,
+  #title {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  #right {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  #place {
+    font-size: 1rem;
+  }
+  #date {
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (max-width: 1386px) {
+  #line {
+    height: 65%;
+  }
 }
 </style>
