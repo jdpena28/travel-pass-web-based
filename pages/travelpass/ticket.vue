@@ -99,9 +99,9 @@ export default {
   name: 'TicketPage',
   head() {
     return {
-      title: '1Bataan |  Ticket Page'
+      title: '1Bataan |  Ticket Page',
     }
-  }
+  },
 }
 </script>
 
