@@ -154,6 +154,11 @@ export default {
       title: '1Bataan | Travel Form',
     }
   },
+  head() {
+    return {
+      title: '1Bataan | Travel Form',
+    }
+  },
   methods: {
     handleSubmit() {
       this.$store.commit('SET_FORM', this.form)
