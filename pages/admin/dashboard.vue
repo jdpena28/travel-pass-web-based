@@ -7,12 +7,12 @@
         alt="Dashboard Logo"
         height="720px"
         width="1080px" />
-      <div class="flex justify-center items-center right-[7%] absolute">
+      <div class="right-[7%] absolute">
         <h2 class="text-xl font-bold text-white">
-          User Administrator<br />
-          <span class="text-sm text-white font-light"
-            >Rovic Troy Ocasiones</span
-          >
+          User Administrator <br />
+          <span class="text-sm capitalize text-white font-light">{{
+            adminName
+          }}</span>
         </h2>
       </div>
       <img
@@ -63,7 +63,18 @@
 
 <script>
 export default {
-  name: 'AdminPage',
+  name: 'DashboardPage',
+  middleware: ['adminOnly'],
+  data() {
+    return {
+      adminName: this.$store.state.adminAuth.displayName,
+    }
+  },
+  head() {
+    return {
+      title: '1 Bataan | Admin',
+    }
+  },
 }
 </script>
 

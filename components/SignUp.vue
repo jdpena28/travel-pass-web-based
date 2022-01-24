@@ -7,8 +7,10 @@
       class="rounded pl-2 text-black text-lg bg-gray-50 w-full outline-none mb-[4px]"
       :type="type"
       :name="labelForSignUp"
+      :value="value"
       :placeholder="placeholder"
-      required />
+      required
+      @input="$emit('input', $event.target.value)" />
     <div
       class="rounded bg-gradient-to-r pb-[3px] from-[#e05252] via-[#6588df] to-[#15EEFC] mb-1"></div>
   </label>

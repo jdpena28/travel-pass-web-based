@@ -25,7 +25,7 @@ export default {
   name: 'IndexPage',
   head() {
     return {
-      title: '1 Bataan | Get Pass',
+      title: '1 Bataan | Home',
     }
   },
 }
