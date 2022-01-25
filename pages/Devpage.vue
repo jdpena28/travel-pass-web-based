@@ -7,7 +7,7 @@
       <h1 class="text-white font-bold text-3xl">MEET THE TEAM</h1>
       </div>
       <div class="container relative px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20"></div>
+      <div class="flex flex-wrap w-full mb-16"></div>
       <div class="flex flex-wrap -m-4">
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div
@@ -20,10 +20,8 @@
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
               John Henrich
             </h3>
-            <p class="leading-relaxed text-base text-center pt-9 pb-9">
-              Time is gold
-              Then  
-              Watching bold
+            <p class="leading-relaxed text-base text-center pt-8 pb-8">
+              Time is gold Then Watching bold
            
             </p>
             <p
@@ -43,14 +41,14 @@
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
               Rovic Troy
             </h3>
-            <p class="leading-relaxed text-base text-center">
+            <p class="leading-relaxed text-sm text-center ">
               “Your time is limited, so don’t waste it living someone else’s
               life. Don’t be trapped by dogma – which is living with the results
               of other people’s thinking.” – Steve Jobs
             </p>
             <p
               class="leading-relaxed text-base font-extrabold text-center mt-6">
-              Front-end | UI Designer
+              Front-end Developer
             </p>
           </div>
         </div>
@@ -65,12 +63,12 @@
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
               Jefte
             </h3>
-            <p class="leading-relaxed text-base text-center pt-7 pb-7">
+            <p class="leading-relaxed text-base text-center pt-5 pb-6">
             "They said, dont give up on your dream. So I went back to Sleep XD"
             </p>
             <p
               class="leading-relaxed text-base font-extrabold text-center mt-6">
-              Front-end Developer
+               Front-end | UI Designer
             </p>
           </div>
         </div>
@@ -85,8 +83,8 @@
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
               Francis Vien
             </h3>
-            <p class="leading-relaxed text-base text-center pt-6 pb-8">
-              Just give up on your dreams<br> and die
+            <p class="leading-relaxed text-base text-center pt-5 pb-6">
+              "Just give up on your dreams<br> and die"
             </p>
             <p
               class="leading-relaxed text-base font-extrabold text-center mt-6">
