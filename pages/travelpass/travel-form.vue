@@ -10,6 +10,7 @@
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
+      
       <form
         class="w-full flex flex-wrap mx-auto pl-28"
         action=""
