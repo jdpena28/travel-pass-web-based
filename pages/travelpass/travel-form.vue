@@ -1,12 +1,22 @@
 <template>
   <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
-    <h1 class="text-xl bg-green-300 mt-3 ml-2 p-3 rounded-xl w-max capitalize">
-      Welcome👋: {{ name ? name : email }}
-    </h1>
+
     <div class="container pb-3 mx-auto space-y-2">
       <div
-        class="flex flex-col rounded-3xl w-full bg-blue-500 mt-2 pb-36"></div>
+        class="flex rounded-3xl text-center text-8xl font-bold text-white white-full bg-blue-500 justify-center items-center mt-2">
+        <img
+          src="~/assets/images/White-Logo.png"
+          alt="Ticket Background"
+          width="250px" />
+        <h1 class="flex-col justify-center">
+          ITS MORE FUN IN<span class="text-8xl"> BATAAN</span>
+        </h1>
+      </div>
+      <p
+        class="text-lg bg-green-300 mt-3 ml-32 p-3 rounded-xl w-max capitalize">
+        Welcome👋: {{ name ? name : email }}
+      </p>
       <div class="flex flex-col w-[full] pl-32 mx-auto">
         <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
@@ -147,11 +157,6 @@ export default {
         exitDate: '',
         modeOfTransport: '',
       },
-    }
-  },
-  head() {
-    return {
-      title: '1Bataan | Travel Form',
     }
   },
   head() {
