@@ -5,7 +5,7 @@
       <!--insert your code here-->
       <div class="infoheader">
         <h1 class="Upd">
-          PHILIPPINES COVID-19 <span style="color: red">UPDATE</span>
+          PHILIPPINES COVID-19 <span class="text-red-400" >UPDATE</span>
         </h1>
         <p>NOTE: No available data between 1:00PM - 6:00PM</p>
         <p>
@@ -75,6 +75,11 @@ export default {
     const res = data.data
     return {
       res,
+    }
+  },
+  head() {
+    return {
+      title: '1 Bataan | Info-Board',
     }
   },
 }

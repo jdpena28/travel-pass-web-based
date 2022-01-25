@@ -123,6 +123,9 @@ export default {
     facebookLogIn() {
       const provider = new FacebookAuthProvider()
       signInWithPopup(auth, provider)
+        .then((result) => {
+          console.log(result)
+        })
         .then((result) => {})
         .catch((error) => {
           console.log(error)
@@ -156,6 +159,13 @@ export default {
             console.log(error)
           })
       }
+      sendPasswordResetEmail(auth, this.email)
+        .then((result) => {
+          console.log(result)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
   },
 }
