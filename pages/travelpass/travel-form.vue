@@ -10,8 +10,7 @@
           alt="Ticket Background"
           width="250px" />
         <h1 class="flex-col justify-center">
-          ITS MORE FUN IN<span class="text-8xl"> BATAAN</span>
-        </h1>
+          ITS MORE FUN IN BATAAN </h1>
       </div>
       <p
         class="text-lg bg-green-300 mt-3 ml-32 p-3 rounded-xl w-max capitalize">
