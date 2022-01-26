@@ -137,9 +137,14 @@
 </template>
 
 <script>
+import {addDoc,collection} from 'firebase/firestore'
+import {db} from '~/plugins/firebase.js'
+
+
 export default {
   name: 'TravelForm',
-  // middleware: ['authProtection'],
+  middleware: ['authProtection'],
+  
   data() {
     return {
       name: this.$store.state.auth.displayName,
@@ -166,9 +171,15 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {
-      this.$store.commit('SET_FORM', this.form)
-      console.log(this.$store.state.form)
+    async handleSubmit() {
+      const formCollection = collection(db, 'travel-form')
+      await addDoc(formCollection, this.form)
+      .then((res) => {
+        this.$router.push(`/travelpass/ticket/${res.id}`)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     },
   },
 }

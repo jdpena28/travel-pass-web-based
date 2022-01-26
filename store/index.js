@@ -28,6 +28,9 @@ export const state = () => ({
     exitDate: '',
     modeOfTransport: '',
   },
+  travellersID: {
+    id:'',
+  }
 })
 
 export const mutations = {
@@ -65,4 +68,9 @@ export const mutations = {
       uid: adminAuth.user.uid,
     }
   },
+  SET_TRAVELLERS_ID(state, res) {
+    state.travellersID = {
+      id: res.id,
+    }
+  }
 }

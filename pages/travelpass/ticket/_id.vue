@@ -15,24 +15,24 @@
 
         <div class="flex left-[25%] bottom-[44%] pr-[2rem] absolute">
           <h6 class="ml-[1rem] mr-[4rem]">
-            From:<br /><span class="text-3xl font-extrabold">San Agustin</span
-            ><br /><span class="text-red-500 text-2xl">MANILA</span><br /><span
+            From:<br /><span class="text-3xl font-extrabold">{{form.from}}</span
+            ><br /><br /><span
               class="text-xs"
-              >July 02, 2022</span
+              >{{form.arrivalDate}}</span
             >
           </h6>
           <h6 class="ml-[1.5rem] pr-[12rem]">
-            To:<br /><span class="text-3xl font-extrabold">Orani</span
+            To:<br /><span class="text-3xl font-extrabold">{{form.destination}}</span
             ><br /><span class="text-red-500 text-2xl">BATAAN</span><br /><span
               class="text-xs"
-              >July 09, 2022</span
+              >{{form.exitDate}}</span
             >
           </h6>
           <div class="flex absolute pr-[4.5rem] top-[110%]">
-            <p>Passenger:<br /><span>John Henrich Dela Pena</span></p>
-            <p>Transport:<br /><span>SUV</span></p>
-            <p>Contact Number:<br /><span>092345678401</span></p>
-            <p class="text-green-700">Status: <br /><span>APPROVED</span></p>
+            <p>Passenger:<br /><span>{{`${form.lastName} ${form.firstName} , ${form.middleName}`}}</span></p>
+            <p>Transport:<br /><span>{{form.modeOfTransport}}</span></p>
+            <p>Contact Number:<br /><span>{{form.contactNum}}</span></p>
+            <p class="text-green-700">Status: <br /><span>Approved</span></p>
           </div>
         </div>
 
@@ -70,35 +70,31 @@
               From:<br /><span
                 id="place"
                 class="text-lg font-extrabold leading-none"
-                >San Agustin</span
-              ><br /><span
-                id="right"
-                class="text-red-500 text-base leading-none"
-                >MANILA</span
-              ><br /><span id="date" class="text-xs leading-none"
-                >July 02, 2022</span
+                >{{form.from}}</span
+              ><br /><br /><span id="date" class="text-xs leading-none"
+                >{{form.arrivalDate}}</span
               >
             </h5>
             <h5 id="right" class="text-sm">
               To:<br /><span
                 id="place"
                 class="text-lg font-extrabold leading-none"
-                >Orani</span
+                >{{form.destination}}</span
               ><br /><span
                 id="right"
                 class="text-red-500 text-base leading-none"
                 >BATAAN</span
               ><br /><span id="date" class="text-xs leading-none"
-                >July 09, 2022</span
+                >{{form.exitDate}}</span
               >
             </h5>
           </div>
           <div class="flex-col left-[68.5%] top-[310%] absolute pr-16">
-            <p>Passenger:<br /><span>John Henrich Dela Pena</span></p>
-            <p>Transport:<br /><span>SUV</span></p>
+            <p>Passenger:<br /><span>{{`${form.lastName} ${form.firstName} , ${form.middleName}`}}</span></p>
+            <p>Transport:<br /><span>{{form.modeOfTransport}}</span></p>
           </div>
           <div class="flex-col absolute left-[85%] top-[310%]">
-            <p>Contact Number:<br /><span>092345678401</span></p>
+            <p>Contact Number:<br /><span>{{form.contactNum}}</span></p>
             <p class="text-green-700">Status: <br /><span>APPROVED</span></p>
           </div>
         </div>
@@ -111,14 +107,24 @@
 </template>
 
 <script>
+import {getDoc,doc } from "firebase/firestore";
+import {db} from "~/plugins/firebase";
 export default {
   name: 'TicketPage',
+  async asyncData({params}) {
+    const ref = doc(db,"travel-form",params.id);
+    const data = await getDoc(ref)
+    return {
+      form: data.data()
+    }
+  },
   head() {
     return {
       title: '1Bataan |  Ticket Page',
     }
   },
 }
+  
 </script>
 
 <style>
