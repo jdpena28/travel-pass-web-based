@@ -44,12 +44,8 @@
             alt="Ticket Logo"
             height="128px"
             width="128px" />
-          <img
-            class="w-[13%] absolute left-[5%] top-[270%]"
-            src="~/assets/images/qr.png"
-            alt="Ticket Logo"
-            height="256px"
-            width="256px" />
+            
+          <qrcode-vue class="w-[13%] absolute left-[5%] top-[270%]" :value="value" :size="size" level="H"></qrcode-vue>
 
           <div class="flex left-[23%] absolute">
             <h2 id="title" class="text-4xl font-bold text-white">
@@ -107,6 +103,7 @@
 </template>
 
 <script>
+import QrcodeVue  from "qrcode.vue";
 import {getDoc,doc } from "firebase/firestore";
 import {db} from "~/plugins/firebase";
 export default {
@@ -123,6 +120,15 @@ export default {
       title: '1Bataan |  Ticket Page',
     }
   },
+  data() {
+    return {
+      value: `1bataan-pass.netlify.app/travelpass/ticket/${this.$route.params.id}`,
+      size: 140,
+    }
+  },
+  components: {
+    QrcodeVue
+  }
 }
   
 </script>
