@@ -9,6 +9,7 @@
       :name="labelForSignUp"
       :value="value"
       :placeholder="placeholder"
+      required
       @input="$emit('input', $event.target.value)" />
     <div
       class="rounded bg-gradient-to-r pb-[3px] from-[#e05252] via-[#6588df] to-[#15EEFC] mb-1"></div>
