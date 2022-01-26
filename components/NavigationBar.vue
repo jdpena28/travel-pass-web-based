@@ -19,7 +19,7 @@
         >Info-Board</span
       >
     </NuxtLink>
-    <NuxtLink to="/about">
+    <NuxtLink to="/devpage">
       <span
         class="p-2 transition ease-in-out delay-150 hover:bg-orange-400 duration-300 rounded-xl"
         >About</span

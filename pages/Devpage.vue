@@ -1,5 +1,4 @@
 <template>
-<fragment>
   <section id="Devpage" class="h-[110%] w-full bg-cover z-10">
     <NavigationBar />
     <div
@@ -127,8 +126,7 @@
     </span>
   </div>
 </footer>
-    
-  </section>
+</section>
 </template>
 
 <script>
