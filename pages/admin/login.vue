@@ -12,7 +12,6 @@
           <h1 class="self-start text-2xl font-semibold">
             ADMINISTRATOR LOGIN
             <br />
-            <p>Bawal si Richmond Dito</p>
           </h1>
 
           <ButtonLogIn
