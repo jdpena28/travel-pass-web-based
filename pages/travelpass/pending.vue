@@ -1,9 +1,10 @@
 <template>
   <section id="waiting-page" class="h-screen w-full bg-cover">
-    <div class="flex justify-center items-center bg-blue-600 p-12 mx-auto">
+    
+    <div class="container flex-col mx-auto">
+      <div class="flex justify-center items-center bg-blue-600 p-12 mx-auto">
       <h1 class="text-3xl font-bold text-white">Pending Approval</h1>
     </div>
-    <div class="container flex-col mx-auto">
       <img
         class="h-max w-[20rem] inset-0 mx-auto mt-8"
         src="~/assets/images/hourglass-icon.png"
@@ -29,7 +30,7 @@
 
 <script>
 export default {
-  name: 'WaitingPage',
+  name: 'PendingPage',
 }
 </script>
 
