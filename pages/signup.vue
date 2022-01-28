@@ -8,13 +8,20 @@
           <h3 class="Create">Create a new account</h3>
           <p class="Continue.">To Continue</p>
         </div>
-        <form @submit.prevent="handleSubmit" class="w-full px-4 flex flex-col items-center gap-y-2" action="">
+        <form
+          class="w-full px-4 flex flex-col items-center gap-y-2"
+          action=""
+          @submit.prevent="handleSubmit">
           <InputField
-            type="email"
             v-model="email"
+            type="email"
             label="Email or Username"
             placeholder="Example@email.com" />
-          <InputField v-model="pass" type="password" label="Password" placeholder="password" />
+          <InputField
+            v-model="pass"
+            type="password"
+            label="Password"
+            placeholder="password" />
           <InputField
             v-model="passConfirm"
             type="password"
@@ -37,7 +44,7 @@
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -55,22 +62,21 @@ export default {
       passConfirm: '',
     }
   },
-  methods:
-  {
+  methods: {
     handleSubmit() {
       if (this.pass !== this.passConfirm) {
-       Vue.$toast.error('Password mismatch')
+        Vue.$toast.error('Password mismatch')
       } else {
-        createUserWithEmailAndPassword(auth,this.email,this.pass)
-        .then(() => {
-          Vue.$toast.success('Account created')
-        })
-        .catch(err => {
-          Vue.$toast.error(err.message)
-        })
+        createUserWithEmailAndPassword(auth, this.email, this.pass)
+          .then(() => {
+            Vue.$toast.success('Account created')
+          })
+          .catch((err) => {
+            Vue.$toast.error(err.message)
+          })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

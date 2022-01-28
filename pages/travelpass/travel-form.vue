@@ -9,8 +9,7 @@
           src="~/assets/images/White-Logo.png"
           alt="Ticket Background"
           width="250px" />
-        <h1 class="flex-col justify-center">
-          ITS MORE FUN IN BATAAN </h1>
+        <h1 class="flex-col justify-center">ITS MORE FUN IN BATAAN</h1>
       </div>
       <p
         class="text-lg bg-green-300 mt-3 ml-32 p-3 rounded-xl w-max capitalize">
@@ -136,14 +135,13 @@
 </template>
 
 <script>
-import {addDoc,collection} from 'firebase/firestore'
-import {db} from '~/plugins/firebase.js'
-
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '~/plugins/firebase.js'
 
 export default {
   name: 'TravelForm',
   middleware: ['authProtection'],
-  
+
   data() {
     return {
       name: this.$store.state.auth.displayName,
@@ -173,12 +171,12 @@ export default {
     async handleSubmit() {
       const formCollection = collection(db, 'travel-form')
       await addDoc(formCollection, this.form)
-      .then((res) => {
-        this.$router.push(`/travelpass/ticket/${res.id}`)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        .then((res) => {
+          this.$router.push(`/travelpass/ticket/${res.id}`)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   },
 }

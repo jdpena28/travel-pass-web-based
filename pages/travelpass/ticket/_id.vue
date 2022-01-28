@@ -15,23 +15,32 @@
 
         <div class="flex left-[25%] bottom-[44%] pr-[2rem] absolute">
           <h6 class="ml-[1rem] mr-[4rem]">
-            From:<br /><span class="text-3xl font-extrabold">{{form.from}}</span
-            ><br /><br /><span
-              class="text-xs"
-              >{{form.arrivalDate}}</span
-            >
+            From:<br /><span class="text-3xl font-extrabold">{{
+              form.from
+            }}</span
+            ><br /><br /><span class="text-xs">{{ form.arrivalDate }}</span>
           </h6>
           <h6 class="ml-[1.5rem] pr-[12rem]">
-            To:<br /><span class="text-3xl font-extrabold">{{form.destination}}</span
+            To:<br /><span class="text-3xl font-extrabold">{{
+              form.destination
+            }}</span
             ><br /><span class="text-red-500 text-2xl">BATAAN</span><br /><span
               class="text-xs"
-              >{{form.exitDate}}</span
+              >{{ form.exitDate }}</span
             >
           </h6>
           <div class="flex absolute pr-[4.5rem] top-[110%]">
-            <p>Passenger:<br /><span>{{`${form.lastName} ${form.firstName} , ${form.middleName}`}}</span></p>
-            <p>Transport:<br /><span>{{form.modeOfTransport}}</span></p>
-            <p>Contact Number:<br /><span>{{form.contactNum}}</span></p>
+            <p>
+              Passenger:<br /><span>{{
+                `${form.lastName} ${form.firstName} , ${form.middleName}`
+              }}</span>
+            </p>
+            <p>
+              Transport:<br /><span>{{ form.modeOfTransport }}</span>
+            </p>
+            <p>
+              Contact Number:<br /><span>{{ form.contactNum }}</span>
+            </p>
             <p class="text-green-700">Status: <br /><span>Approved</span></p>
           </div>
         </div>
@@ -44,8 +53,12 @@
             alt="Ticket Logo"
             height="128px"
             width="128px" />
-            
-          <qrcode-vue class="w-[13%] absolute left-[5%] top-[270%]" :value="value" :size="size" level="H"></qrcode-vue>
+
+          <qrcode-vue
+            class="w-[13%] absolute left-[5%] top-[270%]"
+            :value="value"
+            :size="size"
+            level="H"></qrcode-vue>
 
           <div class="flex left-[23%] absolute">
             <h2 id="title" class="text-4xl font-bold text-white">
@@ -66,31 +79,39 @@
               From:<br /><span
                 id="place"
                 class="text-lg font-extrabold leading-none"
-                >{{form.from}}</span
-              ><br /><br /><span id="date" class="text-xs leading-none"
-                >{{form.arrivalDate}}</span
-              >
+                >{{ form.from }}</span
+              ><br /><br /><span id="date" class="text-xs leading-none">{{
+                form.arrivalDate
+              }}</span>
             </h5>
             <h5 id="right" class="text-sm">
               To:<br /><span
                 id="place"
                 class="text-lg font-extrabold leading-none"
-                >{{form.destination}}</span
+                >{{ form.destination }}</span
               ><br /><span
                 id="right"
                 class="text-red-500 text-base leading-none"
                 >BATAAN</span
-              ><br /><span id="date" class="text-xs leading-none"
-                >{{form.exitDate}}</span
-              >
+              ><br /><span id="date" class="text-xs leading-none">{{
+                form.exitDate
+              }}</span>
             </h5>
           </div>
           <div class="flex-col left-[68.5%] top-[310%] absolute pr-16">
-            <p>Passenger:<br /><span>{{`${form.lastName} ${form.firstName} , ${form.middleName}`}}</span></p>
-            <p>Transport:<br /><span>{{form.modeOfTransport}}</span></p>
+            <p>
+              Passenger:<br /><span>{{
+                `${form.lastName} ${form.firstName} , ${form.middleName}`
+              }}</span>
+            </p>
+            <p>
+              Transport:<br /><span>{{ form.modeOfTransport }}</span>
+            </p>
           </div>
           <div class="flex-col absolute left-[85%] top-[310%]">
-            <p>Contact Number:<br /><span>{{form.contactNum}}</span></p>
+            <p>
+              Contact Number:<br /><span>{{ form.contactNum }}</span>
+            </p>
             <p class="text-green-700">Status: <br /><span>APPROVED</span></p>
           </div>
         </div>
@@ -103,21 +124,19 @@
 </template>
 
 <script>
-import QrcodeVue  from "qrcode.vue";
-import {getDoc,doc } from "firebase/firestore";
-import {db} from "~/plugins/firebase";
+import QrcodeVue from 'qrcode.vue'
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '~/plugins/firebase'
 export default {
   name: 'TicketPage',
-  async asyncData({params}) {
-    const ref = doc(db,"travel-form",params.id);
+  components: {
+    QrcodeVue,
+  },
+  async asyncData({ params }) {
+    const ref = doc(db, 'travel-form', params.id)
     const data = await getDoc(ref)
     return {
-      form: data.data()
-    }
-  },
-  head() {
-    return {
-      title: '1Bataan |  Ticket Page',
+      form: data.data(),
     }
   },
   data() {
@@ -126,11 +145,12 @@ export default {
       size: 140,
     }
   },
-  components: {
-    QrcodeVue
-  }
+  head() {
+    return {
+      title: '1Bataan |  Ticket Page',
+    }
+  },
 }
-  
 </script>
 
 <style>

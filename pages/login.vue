@@ -67,8 +67,10 @@
           </div>
           <div class="flex text-sm justify-center gap-x-3 mt-1">
             <p>Don't have an Account ?</p>
-            <NuxtLink to = "/signup">
-            <p class="cursor-pointer font-semibold text-red-500">Register Here</p>
+            <NuxtLink to="/signup">
+              <p class="cursor-pointer font-semibold text-red-500">
+                Register Here
+              </p>
             </NuxtLink>
           </div>
         </div>

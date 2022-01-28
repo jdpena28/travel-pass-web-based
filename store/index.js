@@ -29,8 +29,8 @@ export const state = () => ({
     modeOfTransport: '',
   },
   travellersID: {
-    id:'',
-  }
+    id: '',
+  },
 })
 
 export const mutations = {
@@ -72,5 +72,5 @@ export const mutations = {
     state.travellersID = {
       id: res.id,
     }
-  }
+  },
 }

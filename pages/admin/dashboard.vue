@@ -55,7 +55,7 @@
           <table class="w-[95%] flex-col justify-center mx-auto my-6 shadow-xl">
             <thead class="bg-gray-50 shadow">
               <tr class="whitespace-nowrap">
-                <th class="px-6 py-2"> </th>
+                <th class="px-6 py-2"></th>
                 <th class="px-6 py-2">ID</th>
                 <th class="px-6 py-2">Name</th>
                 <th class="px-6 py-2">Email</th>
