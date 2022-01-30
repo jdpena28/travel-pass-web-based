@@ -1,6 +1,6 @@
 <template>
-  <section id="Sign-up" class="h-screen w-full bg-cover">
-    <div class="container mt-40 flex justify-center items-center mx-auto">
+  <section id="Sign-up" class="h-screen w-full bg-slate-300">
+    <div class="container pt-16 flex justify-center items-center mx-auto">
       <div
         id="card items-center"
         class="bg-white w-[30%] rounded-3xl shadow-2xl">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -70,6 +70,9 @@ export default {
         createUserWithEmailAndPassword(auth, this.email, this.pass)
           .then(() => {
             Vue.$toast.success('Account created')
+            setTimeout(() => {
+              this.$router.push('/login')
+            }, 1900)
           })
           .catch((err) => {
             Vue.$toast.error(err.message)
