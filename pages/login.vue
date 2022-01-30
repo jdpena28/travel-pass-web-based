@@ -87,9 +87,11 @@ import {
   FacebookAuthProvider,
   sendPasswordResetEmail,
 } from 'firebase/auth'
+import {doc,getDoc} from 'firebase/firestore'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
+import { db } from '~/plugins/firebase.js'
 Vue.use(VueToast, {
   position: 'bottom',
   duration: 2000,
@@ -114,8 +116,8 @@ export default {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider)
         .then((result) => {
+          this.checkUserStatus(result)
           this.$store.commit('SET_AUTH', result)
-          this.$router.push('/travelpass/travel-form')
         })
         .catch((error) => {
           console.log(error)
@@ -163,14 +165,25 @@ export default {
             console.log(error)
           })
       }
-      sendPasswordResetEmail(auth, this.email)
-        .then((result) => {
-          console.log(result)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
     },
+    async checkUserStatus(id) {
+      const docRef = doc(db,'auth-users',id.user.uid)
+      await getDoc(docRef)
+      .then(doc => {
+        if(doc.exists){
+          if(!doc.data().TravelStatus) {
+            this.$router.push('/travelpass/ticket/pending')
+          } else {
+            this.$router.push(`/travelpass/ticker/${id.user.uid}`)
+          }
+        } else {
+          this.$router.push('/travelpass/travel-form')
+        }
+      })
+      .catch(() => {
+        this.$router.push('/travelpass/travel-form')
+      })
+    }
   },
 }
 </script>
