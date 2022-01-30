@@ -13,7 +13,7 @@
             class="bg-white bg-opacity-100 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
-              src="~/assets/images/Johnhenrich.png"
+              src="~/assets/images/devpage/Johnhenrich.png"
               alt="Picture" />
             <h3
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
@@ -33,7 +33,7 @@
             class="bg-white bg-opacity-100 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
-              src="~/assets/images/Rovic.png"
+              src="~/assets/images/devpage/Rovic.png"
               alt="Picture" />
             <h3
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
@@ -56,7 +56,7 @@
             class="bg-white bg-opacity-100 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
-              src="~/assets/images/Jefte.png"
+              src="~/assets/images/devpage/Jefte.png"
               alt="Picture" />
             <h3
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
@@ -76,7 +76,7 @@
             class="bg-white bg-opacity-100 p-6 rounded-2xl border-solid border-2 border-black">
             <img
               class="h-100 rounded w-full object-cover object-center mb-6"
-              src="~/assets/images/Vien.png"
+              src="~/assets/images/devpage/Vien.png"
               alt="Picture" />
             <h3
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
@@ -181,6 +181,6 @@ export default {
 
 <style>
 #Devpage {
-  background-image: url('~assets/images/dev-background.png');
+  background-image: url('~assets/images/devpage/dev-background.png');
 }
 </style>
