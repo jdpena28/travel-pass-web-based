@@ -3,7 +3,7 @@
     <div class="w-[95%] flex justify-between items-center absolute mx-4">
       <img
         class="w-[20%] justify-center items-center ml-20"
-        src="~/assets/images/dashboard-logo.png"
+        src="~/assets/images/admin/dashboard-logo.png"
         alt="Dashboard Logo"
         height="720px"
         width="1080px" />
@@ -17,42 +17,35 @@
       </div>
       <img
         class="w-[4%] justify-center items-center mr-4"
-        src="~/assets/images/icon.png"
+        src="~/assets/images/admin/icon.png"
         alt="Icon"
         height="1080px"
         width="720px" />
     </div>
     <div
       class="container w-full h-screen flex justify-end items-center mx-auto">
-      <div class="flex-col justify-center items-center">
+      <div class="flex flex-col justify-center items-center mr-10">
         <button
+          @click="approved"
           class="bg-blue-700 border-2 hover:bg-blue-500 text-white font-bold py-2 px-[5.5rem] rounded-full">
           Approved
         </button>
         <button
+        @click="rejected"
           class="bg-blue-700 border-2 hover:bg-blue-500 text-white font-bold mt-4 py-2 px-[5.8rem] rounded-full">
           Rejected
+        </button>
+        <button
+          @click="approved"
+          class="bg-red-700 border-2 hover:bg-red-900 text-white font-bold mt-4 py-2 px-[6.2rem] rounded-full">
+          Delete
         </button>
       </div>
       <div
         class="bg-white flex justify-end relative w-[100%] h-[80%] rounded-[3rem] mt-20">
-        <input
-          class="absolute bg-gray-100 hover: border-1 border-gray text-black py-2 pl-4 pr-12 w-[31%] outline-none rounded-full left-[65%] top-[3%]"
-          type="search"
-          placeholder="Search..." />
-        <button
-          class="absolute w-[13%] left-[91%] top-[3.5%] mx-auto"
-          type="button">
-          <img
-            class="absolute w-[2rem] rounded-full"
-            src="~/assets/images/search-icon.svg"
-            alt="Ticket Logo"
-            height="1980px"
-            width="1080px" />
-        </button>
         <div
-          class="w-[92%] h-[77%] mt-20 mr-[4%] absolute rounded-3xl bg-gray-100">
-          <table class="w-[95%] flex-col justify-center mx-auto my-6 shadow-xl">
+          class="w-[92%] h-[77%] mt-12 mr-[4%] rounded-3xl bg-gray-100 overflow-y-scroll">
+          <table class="w-[95%] flex-col justify-center mx-auto my-6 shadow-xl h-80 overflow-y-scroll">
             <thead class="bg-gray-50 shadow">
               <tr class="whitespace-nowrap">
                 <th class="px-6 py-2"></th>
@@ -63,34 +56,18 @@
               </tr>
             </thead>
             <tbody class="bg-white">
-              <tr class="whitespace-nowrap">
-                <td class="px-6 py-4 text-center"><input type="checkbox" /></td>
-                <td class="px-6 py-4 text-sm text-center">1</td>
-                <td class="px-6 py-4 text-sm text-center">Malcolm Lockyer</td>
-                <td class="px-6 py-4 text-sm text-center">dezznut@gmail.com</td>
-                <td class="px-6 py-4 text-sm text-center">Approved</td>
-              </tr>
-              <tr class="whitespace-nowrap">
-                <td class="px-6 py-4 text-center"><input type="checkbox" /></td>
-                <td class="px-6 py-4 text-sm text-center">2</td>
-                <td class="px-6 py-4 text-sm text-center">Lexi Rhoades</td>
-                <td class="px-6 py-4 text-sm text-center">yeet@gmail.com</td>
-                <td class="px-6 py-4 text-sm text-center">Rejected</td>
-              </tr>
-              <tr class="whitespace-nowrap">
-                <td class="px-6 py-4 text-center"><input type="checkbox" /></td>
-                <td class="px-6 py-4 text-sm text-center">3</td>
-                <td class="px-6 py-4 text-sm text-center">Malak Ibayag</td>
-                <td class="px-6 py-4 text-sm text-center">
-                  xxxxredroom@gmail.com
-                </td>
-                <td class="px-6 py-4 text-sm text-center">Approved</td>
+              <tr class="whitespace-nowrap" v-for="(form, i) in form" :key="i">
+                <td class="px-6 py-4 text-center"><input type="checkbox" :id="id[i]" :value="id[i]" v-model="checkbox"/></td>
+                <td class="px-6 py-4 text-sm text-center">{{i+1}}</td>
+                <td class="px-6 py-4 text-sm text-center">{{`${form.firstName} ${form.lastName} ${form.middleName}.`}}</td>
+                <td class="px-6 py-4 text-sm text-center">{{form.email}}</td>
+                <td class="px-6 py-4 text-sm text-center font-semibold" :class="form.status==='Approved'?'text-green-400':'text-red-400'">{{form.status}}</td>
               </tr>
             </tbody>
           </table>
         </div>
-
         <button
+        @click="getData"
           class="absolute bg-blue-700 hover:bg-blue-500 text-white text-[100%] font-bold mt-[1%] py-[1%] w-[22%] rounded-full left-[74%] bottom-[3%]">
           Refresh
         </button>
@@ -100,17 +77,62 @@
 </template>
 
 <script>
+/* import Vue from 'vue' */
+import {collection,getDocs,updateDoc,doc} from 'firebase/firestore'
+import {db} from '~/plugins/firebase'
+/* let vm = new Vue({
+  el: '#admin-page',
+  data: {
+    form: [],
+    id: [],
+  }
+  }) */
 export default {
   name: 'DashboardPage',
   data() {
     return {
       adminName: this.$store.state.adminAuth.displayName,
+      form:[],
+      id:[],
+      checkbox:[],
+      forceReload:1
+    }
+  },
+  async asyncData(){
+    const snapshot = await getDocs(collection(db,'travel-form'))
+    return {
+      form: snapshot.docs.map(doc => doc.data()),
+      id: snapshot.docs.map(doc => doc.id)
     }
   },
   head() {
     return {
       title: '1 Bataan | Admin',
     }
+  },
+
+  methods: {
+    approved(){
+      this.checkbox.forEach(id => {
+         updateDoc(doc(db,"travel-form",id),{
+          status:"Approved"
+        })
+      })
+   },
+   rejected(){
+    this.checkbox.forEach(id => {
+       updateDoc(doc(db,"travel-form",id),{
+        status:"Rejected"
+      })
+    })
+   },
+   async getData() {
+    const snapshot = await getDocs(collection(db,'travel-form'))
+    return {
+      form: snapshot.docs.map(doc => doc.data()),
+      id: snapshot.docs.map(doc => doc.id)
+    }
+   }
   },
 }
 </script>
