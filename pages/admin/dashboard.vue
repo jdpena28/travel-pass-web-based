@@ -77,16 +77,8 @@
 </template>
 
 <script>
-/* import Vue from 'vue' */
 import {collection,getDocs,updateDoc,deleteDoc,doc} from 'firebase/firestore'
 import {db} from '~/plugins/firebase'
-/* let vm = new Vue({
-  el: '#admin-page',
-  data: {
-    form: [],
-    id: [],
-  }
-  }) */
 export default {
   name: 'DashboardPage',
   data() {
@@ -118,6 +110,9 @@ export default {
           status:"Approved"
         })
       })
+      setTimeout(() => {
+      this.$router.go(this.$router.currentRoute)
+    }, 500);
    },
    rejected(){
     this.checkbox.forEach(id => {
@@ -125,20 +120,27 @@ export default {
         status:"Rejected"
       })
     })
+    setTimeout(() => {
+      this.$router.go(this.$router.currentRoute)
+    }, 500);
    },
   deleteData(){
     this.checkbox.forEach(id => {
        deleteDoc(doc(db,"travel-form",id))
     })
+    setTimeout(() => {
+      this.$router.go(this.$router.currentRoute)
+    }, 500);
    },
-   async getData() {
+   async getData(){
     const snapshot = await getDocs(collection(db,'travel-form'))
     return {
       form: snapshot.docs.map(doc => doc.data()),
       id: snapshot.docs.map(doc => doc.id)
     }
    }
-  }
+  },
+ 
 }
 </script>
 
