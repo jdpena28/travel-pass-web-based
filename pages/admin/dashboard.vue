@@ -36,7 +36,7 @@
           Rejected
         </button>
         <button
-          @click="approved"
+          @click="deleteData"
           class="bg-red-700 border-2 hover:bg-red-900 text-white font-bold mt-4 py-2 px-[6.2rem] rounded-full">
           Delete
         </button>
@@ -78,7 +78,7 @@
 
 <script>
 /* import Vue from 'vue' */
-import {collection,getDocs,updateDoc,doc} from 'firebase/firestore'
+import {collection,getDocs,updateDoc,deleteDoc,doc} from 'firebase/firestore'
 import {db} from '~/plugins/firebase'
 /* let vm = new Vue({
   el: '#admin-page',
@@ -126,6 +126,11 @@ export default {
       })
     })
    },
+  deleteData(){
+    this.checkbox.forEach(id => {
+       deleteDoc(doc(db,"travel-form",id))
+    })
+   },
    async getData() {
     const snapshot = await getDocs(collection(db,'travel-form'))
     return {
@@ -133,7 +138,7 @@ export default {
       id: snapshot.docs.map(doc => doc.id)
     }
    }
-  },
+  }
 }
 </script>
 
