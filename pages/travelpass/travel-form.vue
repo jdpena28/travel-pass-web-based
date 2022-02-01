@@ -1,7 +1,6 @@
 <template>
   <section id="log-in" class="h-screen w-full bg-cover">
     <NavigationBar />
-
     <div class="container pb-3 mx-auto space-y-2">
       <div
         class="flex rounded-3xl text-center text-8xl font-bold text-white white-full bg-blue-500 justify-center items-center mt-2">
@@ -19,10 +18,7 @@
         <p class="text-xl font-bold text-blue-400">Personal Information</p>
       </div>
 
-      <form
-        class="w-full flex flex-wrap mx-auto pl-28"
-        action=""
-        @submit.prevent="handleSubmit">
+      <form class="w-full flex flex-wrap mx-auto pl-28" action="">
         <div class="w-full flex gap-x-[5%]">
           <SignUp
             v-model.lazy="form.lastName"
@@ -125,7 +121,8 @@
           </button>
           <button
             class="rounded-xl text-lg bg-blue-500 text-white font-bold px-8 py-2"
-            type="submit">
+            type="button"
+            @click="handleSubmit">
             Submit
           </button>
         </div>
@@ -135,9 +132,8 @@
 </template>
 
 <script>
-import { addDoc, collection } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { db } from '~/plugins/firebase.js'
-
 export default {
   name: 'TravelForm',
   middleware: ['authProtection'],
@@ -145,6 +141,7 @@ export default {
   data() {
     return {
       name: this.$store.state.auth.displayName,
+      email: this.$store.state.auth.email,
       form: {
         lastName: '',
         firstName: '',
@@ -169,10 +166,12 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const formCollection = collection(db, 'travel-form')
-      await addDoc(formCollection, this.form)
+      await setDoc(doc(db, 'travel-form', this.$store.state.auth.uid), {
+        ...this.form,
+        status: 'pending',
+      })
         .then((res) => {
-          this.$router.push(`/travelpass/ticket/${res.id}`)
+          this.$router.push('/travelpass/ticket/pending')
         })
         .catch((err) => {
           console.log(err)

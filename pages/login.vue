@@ -87,7 +87,7 @@ import {
   FacebookAuthProvider,
   sendPasswordResetEmail,
 } from 'firebase/auth'
-import {doc,getDoc} from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -141,7 +141,7 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((result) => {
           this.$store.commit('SET_AUTH', result)
-          this.$router.push('/travelpass/travel-form')
+          this.checkUserStatus(result)
         })
         .catch((error) => {
           if (error.code === 'auth/user-not-found') {
@@ -167,23 +167,23 @@ export default {
       }
     },
     async checkUserStatus(id) {
-      const docRef = doc(db,'auth-users',id.user.uid)
+      const docRef = doc(db, 'travel-form', id.user.uid)
       await getDoc(docRef)
-      .then(doc => {
-        if(doc.exists){
-          if(!doc.data().TravelStatus) {
-            this.$router.push('/travelpass/ticket/pending')
+        .then((doc) => {
+          if (doc.exists) {
+            if (doc.data().status === 'pending') {
+              this.$router.push('/travelpass/ticket/pending')
+            } else {
+              this.$router.push(`/travelpass/ticket/${id.user.uid}`)
+            }
           } else {
-            this.$router.push(`/travelpass/ticker/${id.user.uid}`)
+            this.$router.push('/travelpass/travel-form')
           }
-        } else {
+        })
+        .catch(() => {
           this.$router.push('/travelpass/travel-form')
-        }
-      })
-      .catch(() => {
-        this.$router.push('/travelpass/travel-form')
-      })
-    }
+        })
+    },
   },
 }
 </script>

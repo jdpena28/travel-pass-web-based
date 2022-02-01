@@ -7,6 +7,7 @@ export const state = () => ({
     token: '',
     displayName: '',
     email: '',
+    uid: '',
   },
   adminAuth: {
     displayName: '',
@@ -42,6 +43,7 @@ export const mutations = {
       token: auth.user.accessToken,
       displayName: auth.user.displayName,
       email: auth.user.email,
+      uid: auth.user.uid,
     }
   },
   SET_FORM(state, form) {

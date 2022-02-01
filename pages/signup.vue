@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
