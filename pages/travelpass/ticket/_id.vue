@@ -24,7 +24,7 @@
             To:<br /><span class="text-3xl font-extrabold">{{
               form.destination
             }}</span
-            ><br /><span class="text-red-500 text-2xl">BATAAN</span><br /><span
+            ><br /><span class="text-red-500 text-2xl"></span><br /><span
               class="text-xs"
               >{{ form.exitDate }}</span
             >
@@ -78,21 +78,17 @@
             <h5 id="right" class="text-sm mb-1">
               From:<br /><span
                 id="place"
-                class="text-lg font-extrabold leading-none"
+                class="text-lg font-extrabold leading-none text-red-400"
                 >{{ form.from }}</span
-              ><br /><br /><span id="date" class="text-xs leading-none">{{
+              ><br /><span id="date" class="text-xs leading-none">{{
                 form.arrivalDate
               }}</span>
             </h5>
             <h5 id="right" class="text-sm">
               To:<br /><span
                 id="place"
-                class="text-lg font-extrabold leading-none"
+                class="text-lg font-extrabold leading-none text-red-400"
                 >{{ form.destination }}</span
-              ><br /><span
-                id="right"
-                class="text-red-500 text-base leading-none"
-                >BATAAN</span
               ><br /><span id="date" class="text-xs leading-none">{{
                 form.exitDate
               }}</span>

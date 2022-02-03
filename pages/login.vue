@@ -189,7 +189,7 @@ export default {
 </script>
 <style scoped>
 #log-in {
-  background-image: url('~assets/images/signUpBackground.png');
+  background-image: url('~assets/images/signUpBackground.webp');
 }
 .header {
   padding: 1.2rem;

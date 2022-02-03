@@ -36,6 +36,6 @@ body {
 }
 
 #landing-page {
-  background-image: url('~assets/images/road.png');
+  background-image: url('~assets/images/road.webp');
 }
 </style>

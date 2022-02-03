@@ -172,6 +172,9 @@ export default {
       })
         .then((res) => {
           this.$router.push('/travelpass/ticket/pending')
+          setTimeout(() => {
+            this.$router.go(this.$router.currentRoute.path)
+          }, 1000)
         })
         .catch((err) => {
           console.log(err)

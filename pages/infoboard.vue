@@ -98,6 +98,6 @@ export default {
   color: rgba(12, 104, 237, 1);
 }
 #info-board {
-  background-image: url('~assets/images/covid-board-background.jpg');
+  background-image: url('~assets/images/covid-board-background.webp');
 }
 </style>
