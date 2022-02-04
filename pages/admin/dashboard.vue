@@ -3,7 +3,7 @@
     <div class="w-[95%] flex justify-between items-center absolute mx-4">
       <img
         class="w-[20%] justify-center items-center ml-20"
-        src="~/assets/images/admin/dashboard-logo.png"
+        src="~/assets/images/admin/dashboard-logo.webp"
         alt="Dashboard Logo"
         height="720px"
         width="1080px" />
@@ -17,7 +17,7 @@
       </div>
       <img
         class="w-[4%] justify-center items-center mr-4"
-        src="~/assets/images/admin/icon.png"
+        src="~/assets/images/admin/icon.webp"
         alt="Icon"
         height="1080px"
         width="720px" />
