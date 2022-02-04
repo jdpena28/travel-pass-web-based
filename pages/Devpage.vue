@@ -19,7 +19,7 @@
               class="tracking-widest text-center text-black-400 text-2xl font-extrabold title-font mb-5">
               John Henrich
             </h3>
-            <p class="leading-relaxed text-base text-center pt-8 pb-8">
+            <p class="leading-relaxed text-base text-center pt-8 pb-2">
               Ako ay may lobo lumipad sa langit diko na nakita
             </p>
             <p
