@@ -137,7 +137,7 @@ export default {
   },
   data() {
     return {
-      value: `1bataan-pass.netlify.app/travelpass/ticket/${this.$route.params.id}`,
+      value: `travel-pass-web-based.vercel.app/travelpass/ticket/${this.$route.params.id}`,
       size: 140,
     }
   },
