@@ -19,14 +19,14 @@
             logo="google"
             btnText="LOGIN WITH GOOGLE"
             alt="google"
-            @clickAuth="googleLogIn" />
+            @clickAuth="googleLogIn2" />
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup,setPersistence,browserSessionPersistence } from 'firebase/auth'
 import Vue from 'vue'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -57,7 +57,30 @@ export default {
           )
         })
     },
+    googleLogIn2() {
+      const provider = new GoogleAuthProvider()
+      setPersistence(auth,browserSessionPersistence)
+        .then(() => {
+          return signInWithPopup(auth, provider)
+            .then((result) => {
+              this.$router.push('/admin/dashboard')
+            })
+            .catch((error) => {
+              console.log(error)
+              Vue.$toast.error(
+                'Providers Authentication Error, Try Different Login Method'
+              )
+            })
+        })
+        .catch((error) => {
+          console.log(error)
+          Vue.$toast.error(
+            'Providers Authentication Error, Try Different Login Method'
+          )
+        })
+    },
   },
+  
 }
 </script>
 <style></style>
