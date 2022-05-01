@@ -101,8 +101,10 @@ import {
   deleteDoc,
   doc,
 } from 'firebase/firestore'
+import { PublishCommand } from '@aws-sdk/client-sns'
 import { db } from '~/plugins/firebase'
-import { PublishCommand } from "@aws-sdk/client-sns";
+import { sns } from '~/plugins/AmazonSNS'
+
 export default {
   name: 'DashboardPage',
   middleware: ['adminOnly'],
@@ -128,16 +130,32 @@ export default {
     }
   },
   methods: {
+    async SNS(){
+      /* Before we cand send sms on the phone number we should verify first their phone number
+      then we can send them the message output
+      Code Example: https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns/src
+      Reference: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-verifying-phone-numbers.html */
+      try {
+        const data = await sns.send(new PublishCommand({
+          Message: 'Your travel form has been approved.',
+          PhoneNumber: '+639468083171',
+        }))
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+  },
     approved() {
       this.checkbox.forEach((id) => {
         updateDoc(doc(db, 'travel-form', id), {
           status: 'Approved',
         })
       })
-      setTimeout(() => {
+      this.SNS()
+      /* setTimeout(() => {
         this.$router.go(this.$router.currentRoute)
-      }, 500)
-      
+      }, 500) */
+
     },
     rejected() {
       this.checkbox.forEach((id) => {
