@@ -102,6 +102,7 @@ import {
   doc,
 } from 'firebase/firestore'
 import { db } from '~/plugins/firebase'
+import { PublishCommand } from "@aws-sdk/client-sns";
 export default {
   name: 'DashboardPage',
   middleware: ['adminOnly'],
@@ -136,6 +137,7 @@ export default {
       setTimeout(() => {
         this.$router.go(this.$router.currentRoute)
       }, 500)
+      
     },
     rejected() {
       this.checkbox.forEach((id) => {
