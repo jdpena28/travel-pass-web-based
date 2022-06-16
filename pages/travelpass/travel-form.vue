@@ -67,6 +67,7 @@
             placeholder="e.g 0912" />
           <SignUp
             class="w-[30%]"
+            v-model.lazy="form.files"
             type="file"
             labelForSignUp="Travel Requirements"
             placeholder="Upload Files" />
@@ -156,6 +157,7 @@ export default {
         destination: '',
         exitDate: '',
         modeOfTransport: '',
+        files: [],
       },
     }
   },
