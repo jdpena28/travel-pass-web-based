@@ -16,7 +16,7 @@
         <div id="card" class="bg-white h-full w-[50%] rounded-3xl shadow-lg">
           <div class="header">
             <h3 class="hello">Hello Traveler</h3>
-            <p class="sign">Sign in to Continue</p>
+            <p class="sign text-black">Sign in to Continue</p>
           </div>
           <form
             class="w-full px-8 flex flex-col items-center gap-y-2"
@@ -66,7 +66,7 @@
               @clickAuth="facebookLogIn" />
           </div>
           <div class="flex text-sm justify-center gap-x-3 mt-1">
-            <p>Don't have an Account ?</p>
+            <p c>Don't have an Account ?</p>
             <NuxtLink to="/signup">
               <p class="cursor-pointer font-semibold text-red-500">
                 Register Here

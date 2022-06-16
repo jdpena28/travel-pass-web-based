@@ -8,7 +8,7 @@
         :alt="alt"
         height="24px"
         width="24px" />
-      <p class="font-bold">{{ btnText }}</p>
+      <p class="font-bold text-black">{{ btnText }}</p>
     </div>
   </div>
 </template>

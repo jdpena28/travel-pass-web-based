@@ -1,5 +1,4 @@
 <template>
-  <!-- test -->
   <section id="admin-page" class="h-screen w-full bg-cover bg-[#0C68ED]">
     <div class="w-[95%] flex justify-between items-center absolute mx-4">
       <img
@@ -136,15 +135,12 @@ export default {
       then we can send them the message output
       Code Example: https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns/src
       Reference: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-verifying-phone-numbers.html */
-      try {
-        const data = await sns.send(new PublishCommand({
+      const data = await sns.send(new PublishCommand({
           Message: 'Your travel form has been approved.',
           PhoneNumber: '+639468083171',
         }))
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
+      console.log(data)
+     
   },
     approved() {
       this.checkbox.forEach((id) => {
