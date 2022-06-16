@@ -1,4 +1,5 @@
 <template>
+  <!-- test -->
   <section id="admin-page" class="h-screen w-full bg-cover bg-[#0C68ED]">
     <div class="w-[95%] flex justify-between items-center absolute mx-4">
       <img
