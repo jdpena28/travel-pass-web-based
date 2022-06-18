@@ -186,9 +186,10 @@
 import { doc, setDoc } from 'firebase/firestore'
 import { ref, uploadBytes } from 'firebase/storage'
 import { db, storage } from '~/plugins/firebase.js'
+
 export default {
   name: 'TravelForm',
-  /* middleware: ['authProtection'], */
+  middleware: ['authProtection'],
 
   data() {
     return {
@@ -228,21 +229,16 @@ export default {
         files: 'referInStorageBucket'
       })
         .then(async (res) => {
-          // convert files to based64
-          const storageRef = ref(storage, `files/${this.$store.state.auth.uid}/`)
+          const storageRef = ref(storage, `/${this.$store.state.auth.uid}/`)
           for(let i = 0 ; i < this.form.files.length ; i++) {
-            const file = this.form.files[i]
-            await uploadBytes(storageRef, file)
+            const pointer = ref(storageRef, this.form.files[i].name)
+            await uploadBytes(pointer, this.form.files[i])
             // use promise all to upload all files
           }
-              // Observe state change events such as progress, pause, and resume
-          /* await uploadBytes(storageRef, this.form.files).then((snapshot) => {
-            console.log(snapshot)
-            this.$router.push('/travelpass/ticket/pending')
+           this.$router.push('/travelpass/ticket/pending')
             setTimeout(() => {
             this.$router.go(this.$router.currentRoute.path)
           }, 1000)
-          }) */
         })
     },
   },
