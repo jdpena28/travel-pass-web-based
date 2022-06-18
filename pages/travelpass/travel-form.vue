@@ -225,7 +225,7 @@ export default {
     async handleSubmit() {
       await setDoc(doc(db, 'travel-form', this.$store.state.auth.uid), {
         ...this.form,
-        status: 'pending',
+        status: 'Pending',
         files: 'referInStorageBucket'
       })
         .then(async (res) => {
