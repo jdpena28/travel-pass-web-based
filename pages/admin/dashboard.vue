@@ -26,27 +26,82 @@
       class="container w-full h-screen flex justify-end items-center mx-auto">
       <div class="flex flex-col justify-center items-center mr-10">
         <button
-          class="bg-blue-700 border-2 hover:bg-blue-500 text-white font-bold py-2 px-[5.5rem] rounded-full"
+          class="
+            bg-blue-700
+            border-2
+            hover:bg-blue-500
+            text-white
+            font-bold
+            py-2
+            px-[5.5rem]
+            rounded-full
+          "
           @click="approved">
           Approved
         </button>
         <button
-          class="bg-blue-700 border-2 hover:bg-blue-500 text-white font-bold mt-4 py-2 px-[5.8rem] rounded-full"
+          class="
+            bg-blue-700
+            border-2
+            hover:bg-blue-500
+            text-white
+            font-bold
+            mt-4
+            py-2
+            px-[5.8rem]
+            rounded-full
+          "
           @click="rejected">
           Rejected
         </button>
         <button
-          class="bg-red-700 border-2 hover:bg-red-900 text-white font-bold mt-4 py-2 px-[6.2rem] rounded-full"
+          class="
+            bg-red-700
+            border-2
+            hover:bg-red-900
+            text-white
+            font-bold
+            mt-4
+            py-2
+            px-[6.2rem]
+            rounded-full
+          "
           @click="deleteData">
           Delete
         </button>
       </div>
       <div
-        class="bg-white flex justify-end relative w-[100%] h-[80%] rounded-[3rem] mt-20">
+        class="
+          bg-white
+          flex
+          justify-end
+          relative
+          w-[100%]
+          h-[80%]
+          rounded-[3rem]
+          mt-20
+        ">
         <div
-          class="w-[92%] h-[77%] mt-12 mr-[4%] rounded-3xl bg-gray-100 overflow-y-scroll">
+          class="
+            w-[92%]
+            h-[77%]
+            mt-12
+            mr-[4%]
+            rounded-3xl
+            bg-gray-100
+            overflow-y-scroll
+          ">
           <table
-            class="w-[95%] flex-col justify-center mx-auto my-6 shadow-xl h-80 overflow-y-scroll">
+            class="
+              w-[95%]
+              flex-col
+              justify-center
+              mx-auto
+              my-6
+              shadow-xl
+              h-80
+              overflow-y-scroll
+            ">
             <thead class="bg-gray-50 shadow">
               <tr class="whitespace-nowrap">
                 <th class="px-6 py-2"></th>
@@ -54,6 +109,7 @@
                 <th class="px-6 py-2">Name</th>
                 <th class="px-6 py-2">Email</th>
                 <th class="px-6 py-2">Status</th>
+                <th class="px-6 py-2">Documents</th>
               </tr>
             </thead>
             <tbody class="bg-white">
@@ -75,21 +131,56 @@
                   :class="
                     form.status === 'Approved'
                       ? 'text-green-400'
+                      : form.status === 'Pending'
+                      ? 'text-yellow-500'
                       : 'text-red-400'
                   ">
                   {{ form.status }}
+                </td>
+                <td
+                  class="
+                    px-6
+                    py-4
+                    text-sm text-center
+                    underline underline-offset-2
+                    cursor-pointer
+                    text-blue-400
+                  "
+                  @click="showModal(id[i])">
+                  View Documents
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <button
-          class="absolute bg-blue-700 hover:bg-blue-500 text-white text-[100%] font-bold mt-[1%] py-[1%] w-[22%] rounded-full left-[74%] bottom-[3%]"
+          class="
+            absolute
+            bg-blue-700
+            hover:bg-blue-500
+            text-white text-[100%]
+            font-bold
+            mt-[1%]
+            py-[1%]
+            w-[22%]
+            rounded-full
+            left-[74%]
+            bottom-[3%]
+          "
           @click="getData">
           Refresh
         </button>
       </div>
     </div>
+    <V-Modal  name="files" :width="400" :height="200" :adaptive="true">
+      <div class="space-y-2">
+      <p class="pl-2 pt-3">Files Submitted: </p>
+      <div v-for="(file,i) in fileName" :key="i" class="text-center">
+        <p class="text-blue underline underline-offset-3 cursor-pointer" @click="viewPreview(file.fullPath)">{{file.name}}</p>
+      </div>
+      </div>
+    </V-Modal
+    >
   </section>
 </template>
 
@@ -102,12 +193,13 @@ import {
   doc,
 } from 'firebase/firestore'
 import { PublishCommand } from '@aws-sdk/client-sns'
-import { db } from '~/plugins/firebase'
+import { ref, listAll, getDownloadURL } from 'firebase/storage'
+import { db, storage } from '~/plugins/firebase'
 import { sns } from '~/plugins/AmazonSNS'
 
 export default {
   name: 'DashboardPage',
-  middleware: ['adminOnly'],
+  /* middleware: ['adminOnly'], */
   async asyncData() {
     const snapshot = await getDocs(collection(db, 'travel-form'))
     return {
@@ -121,7 +213,7 @@ export default {
       form: [],
       id: [],
       checkbox: [],
-      forceReload: 1,
+      fileName: [],
     }
   },
   head() {
@@ -130,18 +222,19 @@ export default {
     }
   },
   methods: {
-    async SNS(){
+    async SNS() {
       /* Before we cand send sms on the phone number we should verify first their phone number
       then we can send them the message output
       Code Example: https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns/src
       Reference: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-verifying-phone-numbers.html */
-      const data = await sns.send(new PublishCommand({
+      const data = await sns.send(
+        new PublishCommand({
           Message: 'Your travel form has been approved.',
           PhoneNumber: '+639468083171',
-        }))
+        })
+      )
       console.log(data)
-     
-  },
+    },
     approved() {
       this.checkbox.forEach((id) => {
         updateDoc(doc(db, 'travel-form', id), {
@@ -152,7 +245,6 @@ export default {
       /* setTimeout(() => {
         this.$router.go(this.$router.currentRoute)
       }, 500) */
-
     },
     rejected() {
       this.checkbox.forEach((id) => {
@@ -172,12 +264,24 @@ export default {
         this.$router.go(this.$router.currentRoute)
       }, 500)
     },
-    async getData() {
-      const snapshot = await getDocs(collection(db, 'travel-form'))
-      return {
-        form: snapshot.docs.map((doc) => doc.data()),
-        id: snapshot.docs.map((doc) => doc.id),
-      }
+    getData() {
+      this.$router.go(this.$router.currentRoute)
+    },
+    async showModal(id) {
+      const storageRef = ref(storage, id)
+      await listAll(storageRef).then((res) => {
+        res.items.forEach((itemRef) => {
+          if(!this.fileName.find(file => file.name === itemRef.name)) {
+            this.fileName.push(itemRef)
+          }
+        })
+        this.$modal.show('files')
+      })
+    },
+    async viewPreview(file) {
+      await getDownloadURL(ref(storage, file)).then((res) => {
+        window.open(res,'_blank')
+      })
     },
   },
 }

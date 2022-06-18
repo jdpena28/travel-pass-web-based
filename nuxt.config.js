@@ -27,6 +27,7 @@ export default {
   plugins: [
     '~/plugins/AmazonSNS.js',
     '~/plugins/firebase.js' ,
+    '~plugins/vue-js-modal.js',
   { src: '~/plugins/vuex-persist.js', ssr: false },
   ],
 
