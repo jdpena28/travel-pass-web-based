@@ -209,6 +209,7 @@ export default {
         destination: '',
         exitDate: '',
         modeOfTransport: '',
+        lastViewed: null,
         files: [],
       },
     }
