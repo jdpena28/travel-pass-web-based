@@ -136,6 +136,7 @@
                       : 'text-red-400'
                   ">
                   {{ form.status }}
+                  <p class="text-gray-600 text-xs">{{form.lastViewed}}</p>
                 </td>
                 <td
                   class="
@@ -203,7 +204,14 @@ export default {
   async asyncData() {
     const snapshot = await getDocs(collection(db, 'travel-form'))
     return {
-      form: snapshot.docs.map((doc) => doc.data()),
+      form: snapshot.docs.map((doc) => {
+        return {
+          ...doc.data(),
+          lastViewed: doc.data().lastViewed.toDate().toLocaleString({
+            timeZone: 'Asia/Manila',
+          }),
+        }
+      }),
       id: snapshot.docs.map((doc) => doc.id),
     }
   },
