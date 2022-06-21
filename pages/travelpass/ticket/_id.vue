@@ -137,7 +137,7 @@ export default {
   },
   data() {
     return {
-      value: `travel-pass-web-based.vercel.app/travelpass/ticket/${this.$route.params.id}`,
+      value: `travel-pass-web-based.vercel.app/travelpass/view/qr-pass/${this.$route.params.id}`,
       size: 140,
     }
   },
