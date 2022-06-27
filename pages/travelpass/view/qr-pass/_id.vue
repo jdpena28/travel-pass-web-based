@@ -1,9 +1,18 @@
 <template>
   <section id="qr-pass" class="h-screen w-full bg-cover">
-     <NavigationBar />
-    <div class="container mx-auto">
+    <!-- Desktop View -->
+    <div class="container mx-auto hidden xl:block">
+      <NavigationBar />
       <div
-        class="w-full flex flex-col justify-center items-center h-[90vh] relative mx-auto">
+        class="
+          w-full
+          flex flex-col
+          justify-center
+          items-center
+          h-[90vh]
+          relative
+          mx-auto
+        ">
         <img
           class="w-[84%] flex justify-center items-center absolute"
           src="~/assets/images/bgtickets.png"
@@ -11,7 +20,20 @@
           height="720px"
           width="1280px" />
         <div
-          class="w-[84%] flex justify-center items-center bg-gradient-to-r p-[2%] from-[#58CF00] via-[#AFDD11] to-[#F39F14] rounded-b-[28px] absolute mt-[29%]"></div>
+          class="
+            w-[84%]
+            flex
+            justify-center
+            items-center
+            bg-gradient-to-r
+            p-[2%]
+            from-[#58CF00]
+            via-[#AFDD11]
+            to-[#F39F14]
+            rounded-b-[28px]
+            absolute
+            mt-[29%]
+          "></div>
 
         <div class="flex left-[25%] bottom-[44%] pr-[2rem] absolute">
           <h6 class="ml-[1rem] mr-[4rem]">
@@ -46,9 +68,26 @@
         </div>
 
         <div
-          class="w-[84%] flex justify-center items-center bg-[#E91313] p-[3%] rounded-t-[28px] absolute mb-[25%]">
+          class="
+            w-[84%]
+            flex
+            justify-center
+            items-center
+            bg-[#E91313]
+            p-[3%]
+            rounded-t-[28px]
+            absolute
+            mb-[25%]
+          ">
           <img
-            class="w-[15%] rounded-full border-[.85vh] border-white absolute top-[15%] left-[5%]"
+            class="
+              w-[15%]
+              rounded-full
+              border-[.85vh] border-white
+              absolute
+              top-[15%]
+              left-[5%]
+            "
             src="~/assets/images/ticketlogo.png"
             alt="Ticket Logo"
             height="128px"
@@ -113,15 +152,69 @@
         </div>
         <div
           id="line"
-          class="flex justify-center items-center absolute border-black border-dashed border-l-2 h-[48vh] left-[65%]"></div>
+          class="
+            flex
+            justify-center
+            items-center
+            absolute
+            border-black border-dashed border-l-2
+            h-[48vh]
+            left-[65%]
+          "></div>
       </div>
+    </div>
+    <!-- Mobile View -->
+    <div
+      class="
+        container
+        h-screen
+        block
+        xl:hidden
+        w-full
+        mobile-bg
+        bg-cover bg-top
+      ">
+      <div class="w-full h-16 fixed top-0 bg-red-600">
+        <div class="flex items-center justify-center">
+          <img
+            class="z-20 mt-4 border-4 border-white rounded-full"
+            src="~/assets/images/ticketlogo.png"
+            alt="Ticket Logo"
+            height="90px"
+            width="90px" />
+        </div>
+      </div>
+      <h3 class="text-3xl text-center pt-32 font-sans font-semibold">
+        MY QR CODE
+      </h3>
+      <p class="text-lg text-center font-sans !text-black">
+        {{ ` ${form.firstName} ${form.middleName}. ${form.lastName}` }}
+      </p>
+      <p class="text-sm text-center text-gray-500">Verified User</p>
+      <div class="flex justify-center">
+        <qrcode-vue
+          :value="value"
+          :size="size"
+          level="H" />
+          </div>
+      <div
+        class="
+          w-full
+          h-16
+          fixed
+          bottom-0
+          bg-gradient-to-r
+          from-[#58CF00]
+          via-[#AFDD11]
+          to-[#F39F14]
+        " />
     </div>
   </section>
 </template>
 
 <script>
 import QrcodeVue from 'qrcode.vue'
-import { getDoc, doc, updateDoc, Timestamp} from 'firebase/firestore'
+import { getDoc, doc, updateDoc, Timestamp } from 'firebase/firestore'
 import { db } from '~/plugins/firebase'
 export default {
   name: 'QRCodePage',
@@ -146,20 +239,19 @@ export default {
       title: '1Bataan |  Ticket Page',
     }
   },
- mounted() {
+  mounted() {
     this.updateDate()
   },
   methods: {
     async updateDate() {
-    const ref = doc(db, 'travel-form', this.$route.params.id)
+      const ref = doc(db, 'travel-form', this.$route.params.id)
       await updateDoc(ref, {
         lastViewed: Timestamp.now(),
       }).then(() => {
         console.log('Document successfully updated!')
       })
-    }
-  }
-
+    },
+  },
 }
 </script>
 
@@ -173,6 +265,9 @@ p {
 span {
   color: black;
   font-weight: bold;
+}
+.mobile-bg {
+  background-image: url('~/assets/images/bgtickets.png');
 }
 @media only screen and (max-width: 1280px) {
   body {
