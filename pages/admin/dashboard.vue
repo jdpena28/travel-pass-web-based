@@ -240,8 +240,14 @@ export default {
           Message: 'Your travel form has been approved.',
           PhoneNumber: '+639468083171',
         })
-      )
+      )/* .then(data => {
+        setTimeout(() => {
+        this.$router.go(this.$router.currentRoute)
+      }, 500)
+      }).catch(err => {
+        console.log(err)} */
       console.log(data)
+     
     },
     approved() {
       this.checkbox.forEach((id) => {
@@ -250,9 +256,7 @@ export default {
         })
       })
       this.SNS()
-      /* setTimeout(() => {
-        this.$router.go(this.$router.currentRoute)
-      }, 500) */
+  
     },
     rejected() {
       this.checkbox.forEach((id) => {
