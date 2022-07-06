@@ -211,7 +211,7 @@ import { sns } from '~/plugins/AmazonSNS'
 
 export default {
   name: 'DashboardPage',
-  /* middleware: ['adminOnly'], */
+  middleware: ['adminOnly'],
   async asyncData() {
     const snapshot = await getDocs(collection(db, 'travel-form'))
     return {
