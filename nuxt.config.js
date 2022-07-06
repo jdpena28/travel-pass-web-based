@@ -22,11 +22,16 @@ export default {
   ],
   
   middleware: ["authProtection","adminOnly"],
+  publicRuntimeConfig: {
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/AmazonSNS.js',
     '~/plugins/firebase.js' ,
+    '~plugins/vue-js-modal.js',
   { src: '~/plugins/vuex-persist.js', ssr: false },
   ],
 

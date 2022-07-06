@@ -3,7 +3,18 @@
     <NavigationBar />
     <div class="container pb-3 mx-auto space-y-2">
       <div
-        class="flex rounded-3xl text-center text-8xl font-bold text-white white-full bg-blue-500 justify-center items-center mt-2">
+        class="
+          flex
+          rounded-3xl
+          text-center text-8xl
+          font-bold
+          text-white
+          white-full
+          bg-blue-500
+          justify-center
+          items-center
+          mt-2
+        ">
         <img
           src="~/assets/images/White-Logo.png"
           alt="Ticket Background"
@@ -65,11 +76,35 @@
             type="number"
             labelForSignUp="Contact Number"
             placeholder="e.g 0912" />
-          <SignUp
-            class="w-[30%]"
-            type="file"
-            labelForSignUp="Travel Requirements"
-            placeholder="Upload Files" />
+          <label
+            class="w-[30%] font-semibold text-sm text-blue-500 p-4"
+            for="Travel Requirements">
+            Travel Requirements<br />
+            <input
+              class="
+                w-full
+                rounded
+                pl-2
+                text-black text-lg
+                bg-gray-50
+                outline-none
+                mb-[4px]
+              "
+              type="file"
+              name="Travel Requirements"
+              placeholder="Select a file"
+              multiple @change = "uploadFile" />
+            <div
+              class="
+                rounded
+                bg-gradient-to-r
+                pb-[3px]
+                from-[#e05252]
+                via-[#6588df]
+                to-[#15EEFC]
+                mb-1
+              "></div>
+          </label>
         </div>
         <div class="flex w-[150%] pl-32 rounded-md bg-blue-500 ml-[-7rem]">
           <p class="text-xl font-bold text-white">Travel Information</p>
@@ -114,13 +149,29 @@
         </div>
         <div class="w-full flex justify-between mx-3">
           <button
-            class="rounded-xl text-lg bg-blue-500 text-white font-bold px-8 py-2"
+            class="
+              rounded-xl
+              text-lg
+              bg-blue-500
+              text-white
+              font-bold
+              px-8
+              py-2
+            "
             type="button"
             @click="backAtLogIn">
             Back
           </button>
           <button
-            class="rounded-xl text-lg bg-blue-500 text-white font-bold px-8 py-2"
+            class="
+              rounded-xl
+              text-lg
+              bg-blue-500
+              text-white
+              font-bold
+              px-8
+              py-2
+            "
             type="button"
             @click="handleSubmit">
             Submit
@@ -132,8 +183,12 @@
 </template>
 
 <script>
+import {SubscribeCommand} from '@aws-sdk/client-sns'
 import { doc, setDoc } from 'firebase/firestore'
-import { db } from '~/plugins/firebase.js'
+import { ref, uploadBytes } from 'firebase/storage'
+import { sns } from '~/plugins/AmazonSNS'
+import { db, storage } from '~/plugins/firebase.js'
+
 export default {
   name: 'TravelForm',
   middleware: ['authProtection'],
@@ -156,6 +211,8 @@ export default {
         destination: '',
         exitDate: '',
         modeOfTransport: '',
+        lastViewed: null,
+        files: [],
       },
     }
   },
@@ -165,19 +222,32 @@ export default {
     }
   },
   methods: {
+    uploadFile(e) {
+      this.form.files = e.target.files
+    },
     async handleSubmit() {
+      const params = {
+            TopicArn: "arn:aws:sns:ap-southeast-1:847804464306:OneBataan-TP",
+            Protocol: "sms",
+            Endpoint: this.form.contactNum
+        }
+      await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(new SubscribeCommand(params))
       await setDoc(doc(db, 'travel-form', this.$store.state.auth.uid), {
         ...this.form,
-        status: 'pending',
+        status: 'Pending',
+        files: 'referInStorageBucket'
       })
-        .then((res) => {
-          this.$router.push('/travelpass/ticket/pending')
-          setTimeout(() => {
+        .then(async (res) => {
+          const storageRef = ref(storage, `/${this.$store.state.auth.uid}/`)
+          for(let i = 0 ; i < this.form.files.length ; i++) {
+            const pointer = ref(storageRef, this.form.files[i].name)
+            await uploadBytes(pointer, this.form.files[i])
+            // use promise all to upload all files
+          }
+           this.$router.push('/travelpass/ticket/pending')
+            setTimeout(() => {
             this.$router.go(this.$router.currentRoute.path)
           }, 1000)
-        })
-        .catch((err) => {
-          console.log(err)
         })
     },
   },
