@@ -248,7 +248,7 @@ export default {
       Code Example: https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns/src
       Reference: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-verifying-phone-numbers.html */
       console.log(contactNum.replace(/^(09)/,"+639"))
-      const data = await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(
+      const data = await sns(this.$config.KEY,this.$config.SECRET_KEY).send(
         new PublishCommand({
           Message: 'Your travel form has been approved.',
           PhoneNumber: contactNum.replace(/^(09)/,"+639"),
@@ -280,7 +280,7 @@ export default {
       const docRef = doc(db,'travel-form',this.checkbox[0])
       const docSnap =  await getDoc(docRef)
       const contactNum = docSnap.data().contactNum
-      const data = await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(
+      const data = await sns(this.$config.KEY,this.$config.SECRET_KEY).send(
         new PublishCommand({
           Message: "Your travelpass has been denied, " + this.reason,
           PhoneNumber: contactNum,
