@@ -218,7 +218,7 @@ export default {
       form: snapshot.docs.map((doc) => {
         return {
           ...doc.data(),
-          lastViewed: doc.data().lastViewed.toDate().toLocaleString({
+          lastViewed: doc?.data()?.lastViewed?.toDate().toLocaleString({
             timeZone: 'Asia/Manila',
           }),
         }
