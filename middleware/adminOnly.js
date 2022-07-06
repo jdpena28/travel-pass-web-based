@@ -6,7 +6,8 @@ export default function ({ redirect }) {
   const auth = getAuth()
   onAuthStateChanged(auth,(user)=>{
     if (user) {
-      if (user.uid !== 'tawOoMA3IccVE0Wd3TIV8Nfq19t1')
+      if (user.uid !== 'tawOoMA3IccVE0Wd3TIV8Nfq19t1' && user.uid !== 'uTaZC36gNWVtXfKHlF45qKchvEi2' && user.uid !== "UP75R1ylJLOltn3O2FwfLdEuHoH3" &&
+      user.uid !== "UP75R1ylJLOltn3O2FwfLdEuHoH3" && user.uid !== "ix7caB7b1VNb3hxu7BgMUwpgw8f2")
         return redirect('/admin/login')
     }
   })
