@@ -231,7 +231,7 @@ export default {
             Protocol: "sms",
             Endpoint: this.form.contactNum
         }
-      await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(new SubscribeCommand(params))
+      await sns(this.$config.KEY,this.$config.SECRET_KEY).send(new SubscribeCommand(params))
       await setDoc(doc(db, 'travel-form', this.$store.state.auth.uid), {
         ...this.form,
         status: 'Pending',

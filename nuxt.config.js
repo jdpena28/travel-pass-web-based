@@ -23,8 +23,8 @@ export default {
   
   middleware: ["authProtection","adminOnly"],
   publicRuntimeConfig: {
-    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
-    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    KEY: process.env.KEY,
+    SECRET_KEY: process.env.SECRET_KEY,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
