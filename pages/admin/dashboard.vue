@@ -147,7 +147,7 @@
                     cursor-pointer
                     text-blue-400
                   "
-                  @click="showModal(id[i])">
+                  @click="showModal(form.id)">
                   View Documents
                 </td>
               </tr>
@@ -173,7 +173,7 @@
         </button>
       </div>
     </div>
-    <V-Modal  name="files" :width="400" :height="200" :adaptive="true">
+    <V-Modal @before-close="beforeClose"  name="files" :width="400" :height="200" :adaptive="true">
       <div class="space-y-2">
       <p class="pl-2 pt-3">Files Submitted: </p>
       <div v-for="(file,i) in fileName" :key="i" class="text-center">
@@ -221,6 +221,7 @@ export default {
           lastViewed: doc?.data()?.lastViewed?.toDate().toLocaleString({
             timeZone: 'Asia/Manila',
           }),
+          id: doc.id,
         }
       }),
       id: snapshot.docs.map((doc) => doc.id),
@@ -326,6 +327,9 @@ export default {
         window.open(res,'_blank')
       })
     },
+    beforeClose(event) {
+      this.fileName = []
+    }
   },
 }
 </script>
