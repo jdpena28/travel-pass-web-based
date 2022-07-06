@@ -180,8 +180,18 @@
         <p class="text-blue underline underline-offset-3 cursor-pointer" @click="viewPreview(file.fullPath)">{{file.name}}</p>
       </div>
       </div>
-    </V-Modal
-    >
+    </V-Modal>
+    <V-Modal class="w-full" name="declined" :width="400" :height="260" :adaptive="true">
+      <div class="space-y-2">
+      <p class="pl-2 pt-3">Reason for decline: </p>
+      <div class="flex justify-center">
+      <textarea id="reason"  v-model="reason" class="w-[97%] p-2 border-black border-[1px]" name="reason" cols="30" rows="6"  placeholder="Insert text here"/>
+      </div>
+      <div class="flex flex-row-reverse pr-3">
+      <button @click="rejectSubmit" class="bg-blue-500 hover:bg-blue-700 p-2 text-white font-semibold rounded-sm">Submit</button>
+      </div>
+      </div>
+    </V-Modal>
   </section>
 </template>
 
@@ -192,6 +202,7 @@ import {
   updateDoc,
   deleteDoc,
   doc,
+  getDoc,
 } from 'firebase/firestore'
 import { PublishCommand } from '@aws-sdk/client-sns'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
@@ -222,6 +233,7 @@ export default {
       id: [],
       checkbox: [],
       fileName: [],
+      reason:''
     }
   },
   head() {
@@ -230,43 +242,62 @@ export default {
     }
   },
   methods: {
-    async SNS() {
+    async SNS(contactNum) {
       /* Before we cand send sms on the phone number we should verify first their phone number
       then we can send them the message output
       Code Example: https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns/src
       Reference: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-verifying-phone-numbers.html */
-      const data = await sns.send(
+      console.log(contactNum.replace(/^(09)/,"+639"))
+      const data = await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(
         new PublishCommand({
           Message: 'Your travel form has been approved.',
-          PhoneNumber: '+639468083171',
+          PhoneNumber: contactNum.replace(/^(09)/,"+639"),
         })
-      )/* .then(data => {
+      ).then(data => {
         setTimeout(() => {
         this.$router.go(this.$router.currentRoute)
-      }, 500)
+      }, 1000)
       }).catch(err => {
-        console.log(err)} */
-      console.log(data)
-     
+        console.log(err)
+        })
+        console.log(data)
     },
-    approved() {
+    async approved() {
       this.checkbox.forEach((id) => {
         updateDoc(doc(db, 'travel-form', id), {
           status: 'Approved',
         })
       })
-      this.SNS()
-  
+      const docRef = doc(db,'travel-form',this.checkbox[0])
+      const docSnap =  await getDoc(docRef)
+      const contactNum = docSnap.data().contactNum
+      this.SNS(contactNum)
     },
     rejected() {
-      this.checkbox.forEach((id) => {
+      this.$modal.show('declined')
+    },
+    async rejectSubmit() {
+      const docRef = doc(db,'travel-form',this.checkbox[0])
+      const docSnap =  await getDoc(docRef)
+      const contactNum = docSnap.data().contactNum
+      const data = await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(
+        new PublishCommand({
+          Message: "Your travelpass has been denied, " + this.reason,
+          PhoneNumber: contactNum,
+        })
+      ).then(data => {
+         this.checkbox.forEach((id) => {
         updateDoc(doc(db, 'travel-form', id), {
           status: 'Rejected',
         })
       })
       setTimeout(() => {
         this.$router.go(this.$router.currentRoute)
-      }, 500)
+      }, 1000)
+      }).catch(err => {
+        console.log(err)
+        })
+        console.log(data)
     },
     deleteData() {
       this.checkbox.forEach((id) => {

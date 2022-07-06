@@ -183,8 +183,10 @@
 </template>
 
 <script>
+import {SubscribeCommand} from '@aws-sdk/client-sns'
 import { doc, setDoc } from 'firebase/firestore'
 import { ref, uploadBytes } from 'firebase/storage'
+import { sns } from '~/plugins/AmazonSNS'
 import { db, storage } from '~/plugins/firebase.js'
 
 export default {
@@ -224,6 +226,12 @@ export default {
       this.form.files = e.target.files
     },
     async handleSubmit() {
+      const params = {
+            TopicArn: "arn:aws:sns:ap-southeast-1:847804464306:OneBataan-TP",
+            Protocol: "sms",
+            Endpoint: this.form.contactNum
+        }
+      await sns(this.$config.AWS_ACCESS_KEY_ID,this.$config.AWS_SECRET_ACCESS_KEY).send(new SubscribeCommand(params))
       await setDoc(doc(db, 'travel-form', this.$store.state.auth.uid), {
         ...this.form,
         status: 'Pending',
